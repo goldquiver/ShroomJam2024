@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://diwptqmbikyyv"]
+
+[ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="1_r6arh"]
+
+[node name="Root" type="Node"]
+
+[node name="Preserve" type="Node" parent="."]
+
+[node name="CurrentScene" type="Node" parent="."]
+
+[node name="Shroomy" parent="." instance=ExtResource("1_r6arh")]
+position = Vector2(394, 302)
