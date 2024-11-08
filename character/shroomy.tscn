@@ -2,76 +2,76 @@
 
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_jwcsp"]
 [ext_resource type="Script" path="res://character/shroomy.gd" id="1_p1lax"]
-[ext_resource type="Texture2D" uid="uid://dv5rtoap5bufo" path="res://asset/spr_shroomwalkdown.png" id="1_tr6o3"]
-[ext_resource type="Texture2D" uid="uid://dcy1egr15ulf" path="res://asset/spr_shroomwalkleft.png" id="2_8pej5"]
-[ext_resource type="Texture2D" uid="uid://dlsa80lqtqsj6" path="res://asset/spr_shroomwalkright.png" id="3_pyfhk"]
-[ext_resource type="Texture2D" uid="uid://davmthn7rta31" path="res://asset/spr_shroomwalkup.png" id="4_hj20l"]
+[ext_resource type="Texture2D" uid="uid://dv5rtoap5bufo" path="res://asset/character/spr_shroomwalkdown.png" id="3_ssqxe"]
+[ext_resource type="Texture2D" uid="uid://dcy1egr15ulf" path="res://asset/character/spr_shroomwalkleft.png" id="4_qh86y"]
+[ext_resource type="Texture2D" uid="uid://dlsa80lqtqsj6" path="res://asset/character/spr_shroomwalkright.png" id="5_utw4l"]
+[ext_resource type="Texture2D" uid="uid://davmthn7rta31" path="res://asset/character/spr_shroomwalkup.png" id="6_534p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rt7b"]
 size = Vector2(48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdpku"]
-atlas = ExtResource("1_tr6o3")
+atlas = ExtResource("3_ssqxe")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_waf2u"]
-atlas = ExtResource("1_tr6o3")
+atlas = ExtResource("3_ssqxe")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8erd"]
-atlas = ExtResource("1_tr6o3")
+atlas = ExtResource("3_ssqxe")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfm74"]
-atlas = ExtResource("1_tr6o3")
+atlas = ExtResource("3_ssqxe")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtvom"]
-atlas = ExtResource("2_8pej5")
+atlas = ExtResource("4_qh86y")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dssix"]
-atlas = ExtResource("2_8pej5")
+atlas = ExtResource("4_qh86y")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87dvj"]
-atlas = ExtResource("2_8pej5")
+atlas = ExtResource("4_qh86y")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8bv0"]
-atlas = ExtResource("2_8pej5")
+atlas = ExtResource("4_qh86y")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oyun"]
-atlas = ExtResource("3_pyfhk")
+atlas = ExtResource("5_utw4l")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayjly"]
-atlas = ExtResource("3_pyfhk")
+atlas = ExtResource("5_utw4l")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qtly"]
-atlas = ExtResource("3_pyfhk")
+atlas = ExtResource("5_utw4l")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bq41a"]
-atlas = ExtResource("3_pyfhk")
+atlas = ExtResource("5_utw4l")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoepd"]
-atlas = ExtResource("4_hj20l")
+atlas = ExtResource("6_534p3")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyj47"]
-atlas = ExtResource("4_hj20l")
+atlas = ExtResource("6_534p3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4vnj"]
-atlas = ExtResource("4_hj20l")
+atlas = ExtResource("6_534p3")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uiinf"]
-atlas = ExtResource("4_hj20l")
+atlas = ExtResource("6_534p3")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rbtom"]
@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk-down",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -108,7 +108,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk-left",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -125,7 +125,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk-right",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,14 +142,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk-up",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="Shroomy" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_p1lax")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_jwcsp")]
-max_speed = 600
+max_speed = 400
 acceleration = 40.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -162,5 +162,5 @@ shape = SubResource("RectangleShape2D_0rt7b")
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_rbtom")
-animation = &"walk-right"
-frame_progress = 0.814971
+animation = &"walk-down"
+frame_progress = 0.516575

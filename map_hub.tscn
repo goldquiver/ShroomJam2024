@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://iyjqs6rwh7eu"]
+
+[ext_resource type="Script" path="res://map_hub.gd" id="1_bixo1"]
+[ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
+[ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_5tsho"]
+
+[sub_resource type="Animation" id="Animation_3lsue"]
+resource_name = "intro"
+length = 5.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(593, 718), Vector2(590, 370)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shroomy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-right"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [true],
+"method": &"set_input_control"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_e7uqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(593, 718)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kba0p"]
+_data = {
+"RESET": SubResource("Animation_e7uqv"),
+"intro": SubResource("Animation_3lsue")
+}
+
+[node name="map_hub" type="Node2D"]
+script = ExtResource("1_bixo1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kba0p")
+}
+
+[node name="Bounds" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+position = Vector2(608, 240)
+scale = Vector2(2, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds/StaticBody2D"]
+position = Vector2(-160.5, -210)
+scale = Vector2(1.50548, 1.85774)
+polygon = PackedVector2Array(22.5841, 0, 22.252, 90.9708, -84.6904, 90.9708, -84.6904, 117.347, 21.9199, 117.616, 32.2156, 151.528, 64.099, 152.067, 76.3875, 229.042, -102.293, 227.965, -103.289, 0)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(478, -176)
+polygon = PackedVector2Array(1, -1, 2, 176, 448, 175, 448, 368, 759, 368, 758, -4)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds/StaticBody2D3"]
+position = Vector2(666, 651)
+polygon = PackedVector2Array(2, 13, 38, -270, 134, -266, 135, -76, 517, -72, 517, -168, 259, -169, 261, -362, 581, -363, 584, 16)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(608, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("1_u2k0s")
+
+[node name="Shroomy" parent="." instance=ExtResource("2_5tsho")]
+position = Vector2(593, 718)
