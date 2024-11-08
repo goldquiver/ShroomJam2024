@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://diwptqmbikyyv"]
+[gd_scene load_steps=3 format=3 uid="uid://diwptqmbikyyv"]
 
-[ext_resource type="PackedScene" uid="uid://iyjqs6rwh7eu" path="res://map_hub.tscn" id="1_chpe8"]
+[ext_resource type="PackedScene" uid="uid://chi5j6nwngfcc" path="res://maps/start_screen.tscn" id="1_kj7oj"]
+[ext_resource type="Script" path="res://global/root.gd" id="1_ltu61"]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" groups=["root"]]
+script = ExtResource("1_ltu61")
 
 [node name="CurrentScene" type="Node" parent="."]
 
-[node name="map_hub" parent="CurrentScene" instance=ExtResource("1_chpe8")]
+[node name="StartScreen" parent="CurrentScene" instance=ExtResource("1_kj7oj")]

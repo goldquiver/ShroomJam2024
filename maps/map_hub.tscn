@@ -1,8 +1,23 @@
 [gd_scene load_steps=7 format=3 uid="uid://iyjqs6rwh7eu"]
 
-[ext_resource type="Script" path="res://map_hub.gd" id="1_bixo1"]
+[ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_5tsho"]
+
+[sub_resource type="Animation" id="Animation_e7uqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(593, 718)]
+}
 
 [sub_resource type="Animation" id="Animation_3lsue"]
 resource_name = "intro"
@@ -53,21 +68,6 @@ tracks/1/keys = {
 "args": [true],
 "method": &"set_input_control"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_e7uqv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shroomy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(593, 718)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kba0p"]

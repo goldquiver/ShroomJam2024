@@ -11,6 +11,11 @@ func set_player_control(val: bool):
 	player_control = val
 
 
+func get_current_map() -> Node:
+	var root = get_node_in_group("root")
+	return root.find_child("CurrentScene").get_child(0)
+
+
 func get_node_in_group(group_name: String):
 	if get_tree():
 		var find_node = get_tree().get_first_node_in_group(group_name)
