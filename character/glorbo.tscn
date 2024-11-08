@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2wjm0pyfoofp"]
+[gd_scene load_steps=25 format=3 uid="uid://d2wjm0pyfoofp"]
 
 [ext_resource type="Script" path="res://character/glorbo.gd" id="1_27n3g"]
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_34sr5"]
 [ext_resource type="Texture2D" uid="uid://bidcmdpx6bx75" path="res://asset/spr_blorbowalkdown.png" id="2_fogsm"]
+[ext_resource type="PackedScene" uid="uid://b6xcyoew73xuy" path="res://component/wander_component.tscn" id="3_huier"]
 [ext_resource type="Texture2D" uid="uid://cft3qqxpjiifo" path="res://asset/spr_blorbowalkleft.png" id="3_ubr2y"]
 [ext_resource type="Texture2D" uid="uid://fm5i0rdslln3" path="res://asset/spr_blorbowalkright.png" id="4_nhvym"]
 [ext_resource type="Texture2D" uid="uid://cnc0lkc3o3djy" path="res://asset/spr_blorbowalkup.png" id="5_tvhqd"]
@@ -148,6 +149,9 @@ script = ExtResource("1_27n3g")
 [node name="VelocityComponent" parent="." instance=ExtResource("1_34sr5")]
 max_speed = 600
 acceleration = 40.0
+
+[node name="WanderComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("3_huier")]
+velocity_component = NodePath("../VelocityComponent")
 
 [node name="Visuals" type="Node2D" parent="."]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://diwptqmbikyyv"]
 
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="1_r6arh"]
-[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="2_ncc4u"]
+[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="2_yq1o3"]
 
 [node name="Root" type="Node"]
 
@@ -10,7 +10,7 @@
 [node name="Shroomy" parent="Preserve" instance=ExtResource("1_r6arh")]
 position = Vector2(394, 302)
 
-[node name="Glorbo" parent="Preserve" instance=ExtResource("2_ncc4u")]
-position = Vector2(691, 456)
-
 [node name="CurrentScene" type="Node" parent="."]
+
+[node name="Glorbo" parent="." instance=ExtResource("2_yq1o3")]
+position = Vector2(702, 386)
