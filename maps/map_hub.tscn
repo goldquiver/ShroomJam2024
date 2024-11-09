@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=8 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_5tsho"]
+[ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
 length = 0.001
@@ -124,3 +125,6 @@ texture = ExtResource("1_u2k0s")
 
 [node name="Shroomy" parent="." instance=ExtResource("2_5tsho")]
 position = Vector2(593, 718)
+
+[node name="Door" parent="." instance=ExtResource("4_ee4rg")]
+position = Vector2(106, 161)

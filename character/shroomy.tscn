@@ -150,6 +150,7 @@ animations = [{
 }]
 
 [node name="Shroomy" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_p1lax")
 
 [node name="InteractScanner" type="Area2D" parent="."]

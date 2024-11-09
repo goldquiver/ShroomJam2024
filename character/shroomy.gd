@@ -13,6 +13,14 @@ func _ready():
 	interact_scanner.area_exited.connect(_on_interactive_area_2d_area_exited)
 
 
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("ui_accept"):
+		if interactives_in_range.size() > 0:
+			var parent_object = interactives_in_range[0].get_parent() as Node2D
+			if parent_object.has_method("interact"):
+				parent_object.interact()
+
+
 func _process(_delta):
 	if State.get_player_control():
 		var movement_vector = get_movement_vector()
@@ -23,6 +31,11 @@ func _process(_delta):
 		
 		velocity_component.accelerate_in_direction(direction)
 		velocity_component.move(self)
+		
+	if interactives_in_range.size() == 0:
+		talkable_icon.modulate.a = 0
+	else:
+		talkable_icon.modulate.a = 1
 
 
 func set_input_control(control: bool):
@@ -63,7 +76,7 @@ func stop_anim():
 
 
 func tween_talkable_icon():
-	talkable_icon.position = Vector2(0, -64)
+	talkable_icon.position = Vector2(0, -32)
 	
 	var tween = create_tween()
 	tween.set_parallel()

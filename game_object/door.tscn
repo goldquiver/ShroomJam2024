@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuickdfn26f5n"]
+
+[ext_resource type="Texture2D" uid="uid://bd6vs23kwru0b" path="res://asset/object/Door.png" id="1_ahws3"]
+[ext_resource type="Script" path="res://game_object/door.gd" id="1_tfc5y"]
+[ext_resource type="PackedScene" uid="uid://bw83g8762642n" path="res://component/interactive_component.tscn" id="2_etmcc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbkj0"]
+texture = ExtResource("1_ahws3")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_owws4"]
+sources/0 = SubResource("TileSetAtlasSource_wbkj0")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4clxp"]
+texture = ExtResource("1_ahws3")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_icuq2"]
+sources/0 = SubResource("TileSetAtlasSource_4clxp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojcu4"]
+size = Vector2(32, 48)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_tfc5y")
+
+[node name="DoorClosed" type="TileMap" parent="."]
+position = Vector2(16, 0)
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_owws4")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65537, 0, 0, -1, 0, 1)
+
+[node name="DoorOpen" type="TileMap" parent="."]
+visible = false
+position = Vector2(16, 0)
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_icuq2")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(-65537, 65536, 0, -1, 65536, 1)
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("2_etmcc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_ojcu4")
