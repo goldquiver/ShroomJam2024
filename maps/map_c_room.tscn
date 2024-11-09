@@ -1,0 +1,340 @@
+[gd_scene load_steps=19 format=3 uid="uid://bah8scywl2wff"]
+
+[ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_cvlve"]
+[ext_resource type="Script" path="res://maps/map_c_room.gd" id="1_nwpmb"]
+[ext_resource type="Texture2D" uid="uid://ccn8qexb02khf" path="res://asset/map/Map02.png" id="2_kamih"]
+[ext_resource type="Texture2D" uid="uid://xh8jlg306cng" path="res://asset/object/spr_light.png" id="3_emlq8"]
+[ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="4_ahn5u"]
+[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="5_pu23p"]
+[ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="7_xaktj"]
+
+[sub_resource type="Animation" id="Animation_kvxp7"]
+resource_name = "init"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glorbo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(720, 802), Vector2(712, 689), Vector2(303, 684), Vector2(299, -18), Vector2(618, -21)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": ["walk-right"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateAccessor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_cutscene_state_all"
+}, {
+"args": [false],
+"method": &"set_cutscene_state_all"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shroomy:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(717, 901), Vector2(711, 689), Vector2(527, 690)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shroomy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.5, 2, 3, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disable_terrain_collision"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"enable_terrain_collision"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-down"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Glorbo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shroomy:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_7qyj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glorbo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(720, 802)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shroomy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(717, 901)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glorbo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shroomy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ppv83"]
+resource_name = "glorbo_through_wall"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glorbo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(618, -21), Vector2(1470, -24)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["walk-right"],
+"method": &"force_anim"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateAccessor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["Glorbo", true],
+"method": &"set_cutscene_state"
+}, {
+"args": ["Glorbo", false],
+"method": &"set_cutscene_state"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wh65h"]
+_data = {
+"RESET": SubResource("Animation_7qyj7"),
+"glorbo_through_wall": SubResource("Animation_ppv83"),
+"init": SubResource("Animation_kvxp7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bst26"]
+size = Vector2(701, 608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnkwv"]
+size = Vector2(76, 914.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn2ne"]
+size = Vector2(809, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a83wt"]
+size = Vector2(43, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oomy7"]
+size = Vector2(548, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoeoa"]
+size = Vector2(24, 111.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8d1v"]
+size = Vector2(20, 99)
+
+[node name="map_c_room" type="Node2D"]
+script = ExtResource("1_nwpmb")
+
+[node name="StateAccessor" parent="." instance=ExtResource("1_cvlve")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(716, 742)
+limit_left = 0
+limit_right = 1300
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wh65h")
+}
+
+[node name="Bounds" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(698.5, 313)
+shape = SubResource("RectangleShape2D_bst26")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(214, 296.75)
+shape = SubResource("RectangleShape2D_dnkwv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(614.5, -151)
+shape = SubResource("RectangleShape2D_wn2ne")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(1010.5, -46.5)
+shape = SubResource("RectangleShape2D_a83wt")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(508, 739.5)
+shape = SubResource("RectangleShape2D_oomy7")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(777, 667)
+shape = SubResource("RectangleShape2D_yoeoa")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(572, 313)
+scale = Vector2(2, 2)
+texture = ExtResource("2_kamih")
+
+[node name="walldecor" type="Node2D" parent="."]
+
+[node name="DoorLight" type="Sprite2D" parent="walldecor"]
+position = Vector2(722, 697)
+scale = Vector2(2, 2)
+texture = ExtResource("3_emlq8")
+
+[node name="Shroomy" parent="." instance=ExtResource("4_ahn5u")]
+visible = false
+position = Vector2(717, 901)
+
+[node name="Glorbo" parent="." instance=ExtResource("5_pu23p")]
+visible = false
+position = Vector2(720, 802)
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="trg_make_glorbo_esped" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_make_glorbo_esped"]
+position = Vector2(380, -39)
+shape = SubResource("RectangleShape2D_w8d1v")
+
+[node name="Door" parent="." instance=ExtResource("7_xaktj")]
+visible = false
+position = Vector2(722, 737)
+next_map_path = "res://maps/map_hub.tscn"

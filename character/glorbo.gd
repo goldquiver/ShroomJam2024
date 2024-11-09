@@ -13,7 +13,7 @@ func _process(_delta):
 
 
 func set_animation_state(_delta: float):
-	if not State.is_in_cutscene():
+	if not State.is_in_cutscene("Glorbo"):
 		wander_component.active = is_wandering
 		var movement_vector
 		if is_wandering:

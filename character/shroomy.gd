@@ -25,7 +25,7 @@ func _unhandled_input(_event):
 
 
 func _process(_delta):
-	if not State.is_in_cutscene():
+	if not State.is_in_cutscene("Shroomy"):
 		var movement_vector = get_movement_vector()
 		var direction = movement_vector.normalized()
 		
@@ -39,6 +39,16 @@ func _process(_delta):
 		talkable_icon.modulate.a = 0
 	else:
 		talkable_icon.modulate.a = 1
+
+
+func disable_terrain_collision():
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+
+
+func enable_terrain_collision():
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(1, true)
 
 
 func get_movement_vector():
@@ -67,6 +77,7 @@ func set_animation_state(_delta: float):
 
 func force_anim(anim_name: String):
 	anim_sprite.play(anim_name)
+	anim_sprite.set_frame_and_progress(1, 0)
 
 
 func stop_anim():

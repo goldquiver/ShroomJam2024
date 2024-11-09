@@ -1,14 +1,22 @@
 extends Node
 
-var in_cutscene: bool = true
+var in_cutscene = {
+	"Shroomy": true,
+	"Glorbo": true,
+}
 
 
-func is_in_cutscene() -> bool:
-	return in_cutscene
+func is_in_cutscene(char_name: String) -> bool:
+	return in_cutscene[char_name]
 
 
-func set_in_cutscene(val: bool):
-	in_cutscene = val
+func set_in_cutscene(char_name: String, val: bool):
+	in_cutscene[char_name] = val
+
+
+func set_all_in_cutscene(val: bool):
+	for i in in_cutscene:
+		in_cutscene[i] = val
 
 
 func get_current_map() -> Node:

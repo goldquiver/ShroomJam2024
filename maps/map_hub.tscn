@@ -105,10 +105,10 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 5.3),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [true],
+"args": ["Shroomy", true],
 "method": &"set_cutscene_state"
 }, {
-"args": [false],
+"args": ["Shroomy", false],
 "method": &"set_cutscene_state"
 }]
 }
@@ -159,7 +159,7 @@ tracks/3/path = NodePath("Shroomy")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["walk-left"],
@@ -180,10 +180,10 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
-"method": &"set_cutscene_state"
+"method": &"set_cutscene_state_all"
 }, {
 "args": [false],
-"method": &"set_cutscene_state"
+"method": &"set_cutscene_state_all"
 }]
 }
 tracks/5/type = "method"
@@ -572,6 +572,7 @@ position = Vector2(591, 196)
 
 [node name="Door" parent="." instance=ExtResource("4_ee4rg")]
 position = Vector2(106, 161)
+next_map_path = "res://maps/map_c_room.tscn"
 
 [node name="Triggers" type="Node2D" parent="."]
 
