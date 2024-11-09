@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sdscvc02ygkb"]
+
+[ext_resource type="Script" path="res://global/state_accessor.gd" id="1_yqrwr"]
+
+[node name="StateAccessor" type="Node"]
+script = ExtResource("1_yqrwr")

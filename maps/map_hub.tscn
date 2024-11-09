@@ -1,11 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=33 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_5tsho"]
 [ext_resource type="PackedScene" uid="uid://c6w8660ypjhor" path="res://component/trigger_component.tscn" id="2_c8g8o"]
+[ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="2_k6nhg"]
 [ext_resource type="Texture2D" uid="uid://c5477rrcxem5s" path="res://asset/object/spr_decor.png" id="3_ixshy"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
+[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="5_qeg18"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
 length = 0.001
@@ -20,6 +22,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(593, 718)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(591, 196)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glorbo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_3lsue"]
@@ -44,8 +70,8 @@ tracks/1/path = NodePath("Shroomy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5, 5.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["walk-up"],
 "method": &"force_anim"
@@ -67,15 +93,141 @@ tracks/1/keys = {
 }, {
 "args": ["walk-up"],
 "method": &"force_anim"
-}, {
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateAccessor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
 "args": [true],
-"method": &"set_input_control"
+"method": &"set_cutscene_state"
+}, {
+"args": [false],
+"method": &"set_cutscene_state"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0fka6"]
+resource_name = "first_glorbo_cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1170, 260), Vector2(997, 259)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 3, 3.6, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(591, 196), Vector2(591, 196), Vector2(145, 235), Vector2(108, 183), Vector2(108, 183), Vector2(105, 160)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glorbo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shroomy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateAccessor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_cutscene_state"
+}, {
+"args": [false],
+"method": &"set_cutscene_state"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Glorbo")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Door")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.6, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"open_door"
+}, {
+"args": [],
+"method": &"close_door"
 }]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kba0p"]
 _data = {
 "RESET": SubResource("Animation_e7uqv"),
+"first_glorbo_cutscene": SubResource("Animation_0fka6"),
 "intro": SubResource("Animation_3lsue")
 }
 
@@ -95,7 +247,28 @@ size = Vector2(703, 106)
 size = Vector2(386, 268)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tra7p"]
-size = Vector2(465, 477)
+size = Vector2(466, 477)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krg6f"]
+size = Vector2(96, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4a1t"]
+size = Vector2(33, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtpin"]
+size = Vector2(33, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dffoc"]
+size = Vector2(96, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akbs5"]
+size = Vector2(45, 378)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6etw"]
+size = Vector2(1711, 199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qn2o"]
+size = Vector2(1705, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl81p"]
 size = Vector2(84, 30)
@@ -253,8 +426,13 @@ size = Vector2(32, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh5y"]
 size = Vector2(32, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roq67"]
+size = Vector2(38, 122)
+
 [node name="map_hub" type="Node2D"]
 script = ExtResource("1_bixo1")
+
+[node name="StateAccessor" parent="." instance=ExtResource("2_k6nhg")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(592, 320)
@@ -277,12 +455,15 @@ scale = Vector2(2, 2)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds/StaticBody2D"]
 position = Vector2(-160.5, -210)
 scale = Vector2(1.50548, 1.85774)
-polygon = PackedVector2Array(-84.6904, 90.9708, -84.6904, 117.347, 21.9199, 117.616, 32.2156, 151.528, 64.099, 152.067, 76.3875, 229.042, -102.293, 227.965, -104.286, 90.9707)
+polygon = PackedVector2Array(-84.6904, 90.9708, -84.6904, 117.347, 22.252, 117.078, 32.5478, 151.259, 64.7634, 151.528, 76.3875, 229.042, -102.293, 227.965, -104.286, 90.9707)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bounds/StaticBody2D"]
 position = Vector2(29, 205.5)
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(2, 13, 38, -270, 134, -266, 135, -76, 517, -72, 517, -168, 259, -169, 261, -362, 645, -363, 645, 14)
+polygon = PackedVector2Array(2, 13, 36, -268, 136, -269, 136, -75, 517, -75, 517, -169, 260, -170, 260, -365, 645, -363, 645, 14)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bounds/StaticBody2D"]
+polygon = PackedVector2Array(-288.5, -572.5, -288.5, -504, -240, -504, -240, -488, -237, -473.5, -195, -473.5, -192, -488, -192, -504, -144, -504, -144, -484, -117, -484, -117, -488, -74.5, -488, -74.5, -483.5, -48, -483.5, -48, -504, 0, -504, 0, -488, 3, -473, 45, -473, 48, -488, 48, -504, 97, -504, 97, -573)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Bounds"]
 
@@ -307,8 +488,36 @@ position = Vector2(1120, 58)
 shape = SubResource("RectangleShape2D_xearx")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
-position = Vector2(711.5, -240.5)
+position = Vector2(711, -240.5)
 shape = SubResource("RectangleShape2D_tra7p")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(176, -495.5)
+shape = SubResource("RectangleShape2D_krg6f")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(336.5, -495)
+shape = SubResource("RectangleShape2D_i4a1t")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(494.5, -495.5)
+shape = SubResource("RectangleShape2D_rtpin")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(656, -495.5)
+shape = SubResource("RectangleShape2D_dffoc")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(9.5, -667)
+shape = SubResource("RectangleShape2D_akbs5")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(1655.5, -771.5)
+shape = SubResource("RectangleShape2D_n6etw")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+position = Vector2(1652.5, -511.5)
+shape = SubResource("RectangleShape2D_8qn2o")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Bounds"]
 
@@ -355,6 +564,12 @@ layer_0/tile_data = PackedInt32Array(327729, 262145, 8, 393265, 262145, 8, 45880
 y_sort_enabled = true
 position = Vector2(593, 718)
 
+[node name="Glorbo" parent="." instance=ExtResource("5_qeg18")]
+visible = false
+z_index = 1
+y_sort_enabled = true
+position = Vector2(591, 196)
+
 [node name="Door" parent="." instance=ExtResource("4_ee4rg")]
 position = Vector2(106, 161)
 
@@ -364,11 +579,22 @@ position = Vector2(106, 161)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_glorbo_can_spawn"]
-position = Vector2(1270, 240)
+position = Vector2(1298, 239)
 shape = SubResource("RectangleShape2D_3lkl8")
 
 [node name="trg_start_glorbo_cutscene" parent="Triggers" instance=ExtResource("2_c8g8o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene"]
-position = Vector2(1192, 240)
+position = Vector2(1169, 241)
 shape = SubResource("RectangleShape2D_pyh5y")
+
+[node name="endless_hall_respawn" type="Node2D" parent="Triggers"]
+position = Vector2(1221, -623)
+
+[node name="trg_endless_hall" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_endless_hall"]
+position = Vector2(2463, -624)
+shape = SubResource("RectangleShape2D_roq67")

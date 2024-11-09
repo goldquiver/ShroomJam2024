@@ -25,7 +25,7 @@ func _unhandled_input(_event):
 
 
 func _process(_delta):
-	if State.get_player_control():
+	if not State.is_in_cutscene():
 		var movement_vector = get_movement_vector()
 		var direction = movement_vector.normalized()
 		
@@ -39,10 +39,6 @@ func _process(_delta):
 		talkable_icon.modulate.a = 0
 	else:
 		talkable_icon.modulate.a = 1
-
-
-func set_input_control(control: bool):
-	State.set_player_control(control)
 
 
 func get_movement_vector():
@@ -107,4 +103,4 @@ func _on_interactive_area_2d_area_exited(area):
 
 
 func _on_triggered(area):
-	print(area.get_name())
+	State.get_current_map().triggered(area.get_name())

@@ -1,14 +1,14 @@
 extends Node
 
-var player_control: bool = false
+var in_cutscene: bool = true
 
 
-func get_player_control() -> bool:
-	return player_control
+func is_in_cutscene() -> bool:
+	return in_cutscene
 
 
-func set_player_control(val: bool):
-	player_control = val
+func set_in_cutscene(val: bool):
+	in_cutscene = val
 
 
 func get_current_map() -> Node:
