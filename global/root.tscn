@@ -9,3 +9,5 @@ script = ExtResource("1_ltu61")
 [node name="CurrentScene" type="Node" parent="."]
 
 [node name="StartScreen" parent="CurrentScene" instance=ExtResource("1_kj7oj")]
+
+[node name="SavedScenes" type="Node" parent="."]

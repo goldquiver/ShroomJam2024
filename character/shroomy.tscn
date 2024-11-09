@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfvk43cmhb3dw"]
+[gd_scene load_steps=27 format=3 uid="uid://bfvk43cmhb3dw"]
 
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_jwcsp"]
 [ext_resource type="Script" path="res://character/shroomy.gd" id="1_p1lax"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dcy1egr15ulf" path="res://asset/character/spr_shroomwalkleft.png" id="4_qh86y"]
 [ext_resource type="Texture2D" uid="uid://dlsa80lqtqsj6" path="res://asset/character/spr_shroomwalkright.png" id="5_utw4l"]
 [ext_resource type="Texture2D" uid="uid://davmthn7rta31" path="res://asset/character/spr_shroomwalkup.png" id="6_534p3"]
+[ext_resource type="Texture2D" uid="uid://ctn0oqlohd63t" path="res://asset/ui/exclamation.png" id="7_onw0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8q0o"]
+radius = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rt7b"]
 size = Vector2(48, 48)
@@ -148,6 +152,14 @@ animations = [{
 [node name="Shroomy" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_p1lax")
 
+[node name="InteractScanner" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractScanner"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_d8q0o")
+
 [node name="VelocityComponent" parent="." instance=ExtResource("1_jwcsp")]
 max_speed = 400
 acceleration = 40.0
@@ -164,3 +176,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_rbtom")
 animation = &"walk-down"
 frame_progress = 0.516575
+
+[node name="TalkableIcon" type="Sprite2D" parent="Visuals"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("7_onw0m")

@@ -2,6 +2,15 @@ extends CharacterBody2D
 
 @onready var velocity_component = $VelocityComponent
 @onready var anim_sprite = $Visuals/AnimatedSprite2D
+@onready var talkable_icon = $Visuals/TalkableIcon
+@onready var interact_scanner = $InteractScanner
+
+var interactives_in_range = []
+
+
+func _ready():
+	interact_scanner.area_entered.connect(_on_interactive_area_2d_area_entered)
+	interact_scanner.area_exited.connect(_on_interactive_area_2d_area_exited)
 
 
 func _process(_delta):
@@ -51,3 +60,31 @@ func force_anim(anim_name: String):
 func stop_anim():
 	anim_sprite.set_frame_and_progress(0, 0)
 	anim_sprite.pause()
+
+
+func tween_talkable_icon():
+	talkable_icon.position = Vector2(0, -64)
+	
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(talkable_icon, "modulate:a", 1.0, 0.4)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(talkable_icon, "position", (talkable_icon.position + Vector2.UP * 72), 0.4)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.chain()
+
+
+# --- SIGNALIS
+
+
+func _on_interactive_area_2d_area_entered(area):
+	if interactives_in_range.find(area) < 0:
+		interactives_in_range.append(area)
+	
+	if interactives_in_range.size() == 1:
+		tween_talkable_icon()
+
+
+func _on_interactive_area_2d_area_exited(area):
+	if interactives_in_range.find(area) >= 0:
+		interactives_in_range.remove_at(interactives_in_range.find(area))
