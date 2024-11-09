@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var anim_sprite = $Visuals/AnimatedSprite2D
 @onready var talkable_icon = $Visuals/TalkableIcon
 @onready var interact_scanner = $InteractScanner
+@onready var trigger_scanner = $TriggerScanner
 
 var interactives_in_range = []
 
@@ -11,6 +12,8 @@ var interactives_in_range = []
 func _ready():
 	interact_scanner.area_entered.connect(_on_interactive_area_2d_area_entered)
 	interact_scanner.area_exited.connect(_on_interactive_area_2d_area_exited)
+	
+	trigger_scanner.area_entered.connect(_on_triggered)
 
 
 func _unhandled_input(_event):
@@ -101,3 +104,7 @@ func _on_interactive_area_2d_area_entered(area):
 func _on_interactive_area_2d_area_exited(area):
 	if interactives_in_range.find(area) >= 0:
 		interactives_in_range.remove_at(interactives_in_range.find(area))
+
+
+func _on_triggered(area):
+	print(area.get_name())

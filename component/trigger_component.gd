@@ -1,0 +1,2 @@
+class_name TriggerComponent
+extends Area2D

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=11 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_5tsho"]
+[ext_resource type="PackedScene" uid="uid://c6w8660ypjhor" path="res://component/trigger_component.tscn" id="2_c8g8o"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
@@ -77,6 +78,12 @@ _data = {
 "intro": SubResource("Animation_3lsue")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lkl8"]
+size = Vector2(32, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh5y"]
+size = Vector2(32, 120)
+
 [node name="map_hub" type="Node2D"]
 script = ExtResource("1_bixo1")
 
@@ -128,3 +135,18 @@ position = Vector2(593, 718)
 
 [node name="Door" parent="." instance=ExtResource("4_ee4rg")]
 position = Vector2(106, 161)
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="trg_glorbo_can_spawn" parent="Triggers" instance=ExtResource("2_c8g8o")]
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_glorbo_can_spawn"]
+position = Vector2(1270, 240)
+shape = SubResource("RectangleShape2D_3lkl8")
+
+[node name="trg_start_glorbo_cutscene" parent="Triggers" instance=ExtResource("2_c8g8o")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene"]
+position = Vector2(1192, 240)
+shape = SubResource("RectangleShape2D_pyh5y")
