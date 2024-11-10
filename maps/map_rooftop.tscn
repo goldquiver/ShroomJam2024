@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dammjc868j3q7"]
+
+[ext_resource type="Script" path="res://maps/map_rooftop.gd" id="1_aqtqe"]
+[ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_y2u1o"]
+[ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_4sve7"]
+[ext_resource type="Texture2D" uid="uid://dtm7p138ynhko" path="res://asset/map/MapEndBaseGlichUNDER.png" id="2_x5r5x"]
+[ext_resource type="Texture2D" uid="uid://b4tt1kpryfy3j" path="res://asset/map/MapEndBase.png" id="3_mg87w"]
+[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="3_q6qrm"]
+
+[node name="map_rooftop" type="Node2D"]
+script = ExtResource("1_aqtqe")
+
+[node name="StateAccessor" parent="." instance=ExtResource("1_y2u1o")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="glitch_back" type="Sprite2D" parent="background"]
+position = Vector2(1280, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("2_x5r5x")
+
+[node name="rooftop_base_1" type="Sprite2D" parent="background"]
+position = Vector2(1280, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("3_mg87w")
+
+[node name="rooftop_base_2" type="Sprite2D" parent="background"]
+position = Vector2(1280, 320)
+scale = Vector2(4, 4)
+
+[node name="Shroomy" parent="." instance=ExtResource("2_4sve7")]
+
+[node name="Glorbo" parent="." instance=ExtResource("3_q6qrm")]

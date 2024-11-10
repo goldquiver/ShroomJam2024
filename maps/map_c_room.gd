@@ -19,8 +19,9 @@ func _process(_delta):
 
 
 func triggered(trigger_name: String):
-	print(trigger_name)
+	var root = State.get_node_in_group("root")
 	
 	if trigger_name == "trg_make_glorbo_esped":
+		root.set_trigger_data("can_pass_endless_hall", true)
 		anim_player.play("glorbo_through_wall")
 		$Triggers/trg_make_glorbo_esped.queue_free()

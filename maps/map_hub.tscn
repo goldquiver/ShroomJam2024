@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=37 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -46,71 +46,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_3lsue"]
-resource_name = "intro"
-length = 5.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shroomy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(593, 718), Vector2(590, 370)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Shroomy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": ["walk-up"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-left"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-right"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-up"],
-"method": &"force_anim"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StateAccessor")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 5.3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": ["Shroomy", true],
-"method": &"set_cutscene_state"
-}, {
-"args": ["Shroomy", false],
-"method": &"set_cutscene_state"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_0fka6"]
@@ -224,10 +159,80 @@ tracks/6/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_1va6y"]
+resource_name = "first_glorbo_cutscene_2"
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_3lsue"]
+resource_name = "intro"
+length = 5.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(593, 718), Vector2(590, 370)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shroomy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-right"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateAccessor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["Shroomy", true],
+"method": &"set_cutscene_state"
+}, {
+"args": ["Shroomy", false],
+"method": &"set_cutscene_state"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kba0p"]
 _data = {
 "RESET": SubResource("Animation_e7uqv"),
 "first_glorbo_cutscene": SubResource("Animation_0fka6"),
+"first_glorbo_cutscene_2": SubResource("Animation_1va6y"),
 "intro": SubResource("Animation_3lsue")
 }
 
@@ -250,7 +255,7 @@ size = Vector2(386, 268)
 size = Vector2(466, 477)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krg6f"]
-size = Vector2(96, 33)
+size = Vector2(96, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4a1t"]
 size = Vector2(33, 34)
@@ -259,7 +264,7 @@ size = Vector2(33, 34)
 size = Vector2(33, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dffoc"]
-size = Vector2(96, 33)
+size = Vector2(96, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akbs5"]
 size = Vector2(45, 378)
@@ -420,14 +425,23 @@ texture = ExtResource("3_ixshy")
 [sub_resource type="TileSet" id="TileSet_8mvw8"]
 sources/1 = SubResource("TileSetAtlasSource_onji1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1mpi"]
+size = Vector2(138, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lkl8"]
 size = Vector2(32, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh5y"]
 size = Vector2(32, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vp3r"]
+size = Vector2(133, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roq67"]
 size = Vector2(38, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3y6o"]
+size = Vector2(33, 115)
 
 [node name="map_hub" type="Node2D"]
 script = ExtResource("1_bixo1")
@@ -492,7 +506,7 @@ position = Vector2(711, -240.5)
 shape = SubResource("RectangleShape2D_tra7p")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
-position = Vector2(176, -495.5)
+position = Vector2(176, -511.5)
 shape = SubResource("RectangleShape2D_krg6f")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
@@ -504,7 +518,7 @@ position = Vector2(494.5, -495.5)
 shape = SubResource("RectangleShape2D_rtpin")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
-position = Vector2(656, -495.5)
+position = Vector2(656, -511.5)
 shape = SubResource("RectangleShape2D_dffoc")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
@@ -576,6 +590,14 @@ next_map_path = "res://maps/map_c_room.tscn"
 
 [node name="Triggers" type="Node2D" parent="."]
 
+[node name="trg_glorbo_can_spawn_2" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_glorbo_can_spawn_2"]
+position = Vector2(416, -526)
+shape = SubResource("RectangleShape2D_b1mpi")
+
 [node name="trg_glorbo_can_spawn" parent="Triggers" instance=ExtResource("2_c8g8o")]
 script = null
 
@@ -592,6 +614,14 @@ shape = SubResource("RectangleShape2D_pyh5y")
 [node name="endless_hall_respawn" type="Node2D" parent="Triggers"]
 position = Vector2(1221, -623)
 
+[node name="trg_start_glorbo_cutscene2" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene2"]
+position = Vector2(415.5, -3.5)
+shape = SubResource("RectangleShape2D_1vp3r")
+
 [node name="trg_endless_hall" type="Area2D" parent="Triggers"]
 collision_layer = 4
 collision_mask = 0
@@ -599,3 +629,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_endless_hall"]
 position = Vector2(2463, -624)
 shape = SubResource("RectangleShape2D_roq67")
+
+[node name="trg_load_end_game" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_load_end_game"]
+position = Vector2(2454, -623)
+shape = SubResource("RectangleShape2D_r3y6o")

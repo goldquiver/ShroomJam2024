@@ -5,8 +5,6 @@ extends Node2D
 
 @export_range (0, 1) var camera_smoothing: float = 0.06
 
-var trigger_data = {}
-
 
 # Camera Limit list items:
 # 1=top-left x, 2=top-left y, 3=bottom-right x, 4=bottom-right y
@@ -53,19 +51,37 @@ func set_camera_limit(player: CharacterBody2D):
 
 
 func triggered(trigger_name: String):
-	print(trigger_name)
+	var root = State.get_node_in_group("root")
 	
 	if trigger_name == "trg_glorbo_can_spawn":
-		trigger_data.can_start_glorbo_cutscene = true
+		root.set_trigger_data("can_start_glorbo_cutscene", true)
+		$Triggers/trg_glorbo_can_spawn.queue_free()
+		
+	if trigger_name == "trg_glorbo_can_spawn_2":
+		root.set_trigger_data("can_start_glorbo_cutscene_2", true)
 		$Triggers/trg_glorbo_can_spawn.queue_free()
 		
 	if trigger_name == "trg_start_glorbo_cutscene":
-		if trigger_data.has("can_start_glorbo_cutscene") and trigger_data.can_start_glorbo_cutscene == true:
+		if root.has_trigger_data("can_start_glorbo_cutscene") and root.get_trigger_data("can_start_glorbo_cutscene") == true \
+			and root.has_trigger_data("can_start_glorbo_cutscene_2") and root.get_trigger_data("can_start_glorbo_cutscene_2") == true:
 			$Triggers/trg_start_glorbo_cutscene.queue_free()
+			$Triggers/trg_start_glorbo_cutscene_2.queue_free()
 			animation_player.play("first_glorbo_cutscene")
-		else:
-			print("NO CAN DO")
+	
+	if trigger_name == "trg_start_glorbo_cutscene_2":
+		if root.has_trigger_data("can_start_glorbo_cutscene") and root.get_trigger_data("can_start_glorbo_cutscene") == true \
+			and root.has_trigger_data("can_start_glorbo_cutscene_2") and root.get_trigger_data("can_start_glorbo_cutscene_2") == true:
+			$Triggers/trg_start_glorbo_cutscene.queue_free()
+			$Triggers/trg_start_glorbo_cutscene_2.queue_free()
+			animation_player.play("first_glorbo_cutscene_2")
 			
 	if trigger_name == "trg_endless_hall":
-		var tele_point = $Triggers/endless_hall_respawn
-		State.get_node_in_group("player").position.x = tele_point.global_position.x
+		var can_pass = root.get_trigger_data("can_pass_endless_hall")
+		if not can_pass:
+			var tele_point = $Triggers/endless_hall_respawn
+			State.get_node_in_group("player").position.x = tele_point.global_position.x
+
+	if trigger_name == "trg_load_end_game":
+		var can_pass = root.get_trigger_data("can_pass_endless_hall")
+		if can_pass:
+			root.change_map("res://maps/map_rooftop.tscn")

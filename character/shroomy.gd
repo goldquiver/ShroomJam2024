@@ -114,4 +114,5 @@ func _on_interactive_area_2d_area_exited(area):
 
 
 func _on_triggered(area):
-	State.get_current_map().triggered(area.get_name())
+	var map = State.get_current_map()
+	map.triggered(area.get_name())
