@@ -279,7 +279,7 @@ libraries = {
 [node name="Bounds" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
-position = Vector2(4, 7)
+position = Vector2(4, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
 position = Vector2(698.5, 313)
@@ -298,7 +298,7 @@ position = Vector2(1010.5, -46.5)
 shape = SubResource("RectangleShape2D_a83wt")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
-position = Vector2(508, 739.5)
+position = Vector2(508, 741)
 shape = SubResource("RectangleShape2D_oomy7")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
@@ -306,14 +306,14 @@ position = Vector2(777, 667)
 shape = SubResource("RectangleShape2D_yoeoa")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(576, 320)
+position = Vector2(576, 336)
 scale = Vector2(2, 2)
 texture = ExtResource("2_kamih")
 
 [node name="walldecor" type="Node2D" parent="."]
 
 [node name="DoorLight" type="Sprite2D" parent="walldecor"]
-position = Vector2(722, 697)
+position = Vector2(722, 720)
 scale = Vector2(2, 2)
 texture = ExtResource("3_emlq8")
 
@@ -329,6 +329,7 @@ position = Vector2(720, 802)
 position = Vector2(-1, 7)
 
 [node name="trg_make_glorbo_esped" type="Area2D" parent="Triggers"]
+position = Vector2(1, 16)
 collision_layer = 4
 collision_mask = 0
 
