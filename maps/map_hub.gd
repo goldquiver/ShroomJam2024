@@ -59,7 +59,7 @@ func triggered(trigger_name: String):
 		
 	if trigger_name == "trg_glorbo_can_spawn_2":
 		root.set_trigger_data("can_start_glorbo_cutscene_2", true)
-		$Triggers/trg_glorbo_can_spawn.queue_free()
+		$Triggers/trg_glorbo_can_spawn_2.queue_free()
 		
 	if trigger_name == "trg_start_glorbo_cutscene":
 		if root.has_trigger_data("can_start_glorbo_cutscene") and root.get_trigger_data("can_start_glorbo_cutscene") == true \

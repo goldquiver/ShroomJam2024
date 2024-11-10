@@ -279,6 +279,7 @@ libraries = {
 [node name="Bounds" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+position = Vector2(4, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
 position = Vector2(698.5, 313)
@@ -305,7 +306,7 @@ position = Vector2(777, 667)
 shape = SubResource("RectangleShape2D_yoeoa")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(572, 313)
+position = Vector2(576, 320)
 scale = Vector2(2, 2)
 texture = ExtResource("2_kamih")
 
@@ -325,6 +326,7 @@ visible = false
 position = Vector2(720, 802)
 
 [node name="Triggers" type="Node2D" parent="."]
+position = Vector2(-1, 7)
 
 [node name="trg_make_glorbo_esped" type="Area2D" parent="Triggers"]
 collision_layer = 4

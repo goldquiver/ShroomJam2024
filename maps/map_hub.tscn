@@ -606,6 +606,7 @@ position = Vector2(1298, 239)
 shape = SubResource("RectangleShape2D_3lkl8")
 
 [node name="trg_start_glorbo_cutscene" parent="Triggers" instance=ExtResource("2_c8g8o")]
+script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene"]
 position = Vector2(1169, 241)
@@ -614,11 +615,11 @@ shape = SubResource("RectangleShape2D_pyh5y")
 [node name="endless_hall_respawn" type="Node2D" parent="Triggers"]
 position = Vector2(1221, -623)
 
-[node name="trg_start_glorbo_cutscene2" type="Area2D" parent="Triggers"]
+[node name="trg_start_glorbo_cutscene_2" type="Area2D" parent="Triggers"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_start_glorbo_cutscene_2"]
 position = Vector2(415.5, -3.5)
 shape = SubResource("RectangleShape2D_1vp3r")
 
