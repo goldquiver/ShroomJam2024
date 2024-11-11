@@ -1141,11 +1141,11 @@ position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nndtj")
 animation = &"walk-down"
-frame_progress = 0.912893
+frame_progress = 0.957933
 
 [node name="ShadowSprite" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_gqp4x")
 animation = &"walk-down"
-frame_progress = 0.304349
+frame_progress = 0.280247

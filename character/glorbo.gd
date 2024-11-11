@@ -71,9 +71,16 @@ func set_animation_state(_delta: float):
 				clean_sprite.pause()
 
 
-func force_anim(anim_name: String):
+func force_anim(anim_name: String, frame:int=0, pause_on_frame: bool=false):
 	clean_sprite.play(anim_name)
 	shadow_sprite.play(anim_name)
+	
+	clean_sprite.set_frame_and_progress(frame, 0)
+	shadow_sprite.set_frame_and_progress(frame, 0)
+	
+	if pause_on_frame:
+		clean_sprite.pause()
+		shadow_sprite.pause()
 
 
 func stop_anim():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bah8scywl2wff"]
+[gd_scene load_steps=23 format=3 uid="uid://bah8scywl2wff"]
 
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_cvlve"]
 [ext_resource type="Script" path="res://maps/map_c_room.gd" id="1_nwpmb"]
 [ext_resource type="Texture2D" uid="uid://ccn8qexb02khf" path="res://asset/map/Map02.png" id="2_kamih"]
 [ext_resource type="Texture2D" uid="uid://xh8jlg306cng" path="res://asset/object/spr_light.png" id="3_emlq8"]
+[ext_resource type="AudioStream" uid="uid://b1ff2o8doin0i" path="res://asset/sound/snd_glorbosurprised.mp3" id="3_q0hw6"]
 [ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="4_ahn5u"]
 [ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="5_pu23p"]
 [ext_resource type="Texture2D" uid="uid://c5477rrcxem5s" path="res://asset/object/spr_decor.png" id="5_u2tmx"]
@@ -62,7 +63,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ppv83"]
 resource_name = "glorbo_through_wall"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,10 +71,10 @@ tracks/0/path = NodePath("Glorbo:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(618, -21), Vector2(1470, -24)]
+"values": [Vector2(618, -21), Vector2(643, -46), Vector2(673, -29), Vector2(673, -29), Vector2(1470, -24)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -82,9 +83,12 @@ tracks/1/path = NodePath("Glorbo")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["shock-left", 1, true],
+"method": &"force_anim"
+}, {
 "args": ["walk-right"],
 "method": &"force_anim"
 }]
@@ -96,7 +100,7 @@ tracks/2/path = NodePath("StateAccessor")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0.5, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["Glorbo", true],
@@ -106,6 +110,21 @@ tracks/2/keys = {
 "method": &"set_cutscene_state"
 }]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GlorboShock")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_q0hw6")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_kvxp7"]
 resource_name = "init"
@@ -408,6 +427,8 @@ size = Vector2(20, 99)
 
 [node name="map_c_room" type="Node2D"]
 script = ExtResource("1_nwpmb")
+
+[node name="GlorboShock" type="AudioStreamPlayer2D" parent="."]
 
 [node name="StateAccessor" parent="." instance=ExtResource("1_cvlve")]
 
