@@ -5,11 +5,40 @@ extends CharacterBody2D
 @onready var shadow_sprite = $Visuals/ShadowSprite
 
 var is_wandering = false
+var current_mask_ratio = 200
+var current_glitch_ratio = 0.75
 
 
 func _process(_delta):
-	shadow_sprite.modulate.a = randf() + 0.2
+	shadow_sprite.modulate.a = randf() * current_mask_ratio * _delta
 	set_animation_state(_delta)
+	set_glitch_anim(_delta)
+
+
+func set_glitch_anim(_delta):
+	var curr_anim = clean_sprite.animation as String
+	var root_anim_name = curr_anim
+	
+	if root_anim_name.ends_with("-g"):
+		root_anim_name = root_anim_name.substr(0, root_anim_name.length() - 2)
+	
+	var curr_frame = clean_sprite.frame
+	var curr_frame_progress = clean_sprite.frame_progress
+	
+	if randf() < current_glitch_ratio:
+		clean_sprite.play(root_anim_name + "-g")
+		clean_sprite.set_frame_and_progress(curr_frame, curr_frame_progress)
+	else:
+		clean_sprite.play(root_anim_name)
+		clean_sprite.set_frame_and_progress(curr_frame, curr_frame_progress)
+
+
+func set_mask_ratio(new_val: float):
+	current_mask_ratio = new_val
+
+
+func set_glitch_ratio(new_val: float):
+	current_glitch_ratio = new_val
 
 
 func set_animation_state(_delta: float):
