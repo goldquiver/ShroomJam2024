@@ -30,8 +30,9 @@ func check_glorbo_cutscene():
 
 func triggered(trigger_name: String):
 	var root = State.get_node_in_group("root")
+	var can_view = root.get_trigger_data("seen_glorbo_cutscene_hub")
 	
-	if trigger_name == "trg_make_glorbo_esped":
+	if trigger_name == "trg_make_glorbo_esped" and can_view:
 		root.set_trigger_data("can_pass_endless_hall", true)
 		anim_player.play("glorbo_through_wall")
 		$Triggers/trg_make_glorbo_esped.queue_free()

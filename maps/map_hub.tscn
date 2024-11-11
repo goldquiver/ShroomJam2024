@@ -739,6 +739,7 @@ position = Vector2(2463, -624)
 shape = SubResource("RectangleShape2D_roq67")
 
 [node name="trg_load_end_game" type="Area2D" parent="Triggers"]
+position = Vector2(-57, -2)
 collision_layer = 4
 collision_mask = 0
 

@@ -102,3 +102,8 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_iprl5")
 }
+
+[connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="button_up" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
