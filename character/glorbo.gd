@@ -8,7 +8,7 @@ var is_wandering = false
 
 
 func _process(_delta):
-	shadow_sprite.modulate.a = randf() + 0.5
+	shadow_sprite.modulate.a = randf() + 0.2
 	set_animation_state(_delta)
 
 

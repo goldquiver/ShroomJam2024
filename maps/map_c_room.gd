@@ -5,9 +5,11 @@ extends Node2D
 
 @export_range (0, 1) var camera_smoothing: float = 0.06
 
+var seen_intro_cutscene = false
+
 
 func _ready():
-	anim_player.play("init")
+	check_glorbo_cutscene()
 	$Door.open_door()
 
 
@@ -16,6 +18,14 @@ func _process(_delta):
 	if target:
 		camera.position.x += (target.position.x - camera.position.x) * camera_smoothing
 		camera.position.y += (target.position.y - camera.position.y) * camera_smoothing
+
+
+func check_glorbo_cutscene():
+	var root = State.get_node_in_group("root")
+	var can_view = root.get_trigger_data("seen_glorbo_cutscene_hub")
+	if can_view and not seen_intro_cutscene:
+		anim_player.play("init")
+		seen_intro_cutscene = true
 
 
 func triggered(trigger_name: String):

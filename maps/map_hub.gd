@@ -67,6 +67,7 @@ func triggered(trigger_name: String):
 			$Triggers/trg_start_glorbo_cutscene.queue_free()
 			$Triggers/trg_start_glorbo_cutscene_2.queue_free()
 			animation_player.play("first_glorbo_cutscene")
+			root.set_trigger_data("seen_glorbo_cutscene_hub", true)
 	
 	if trigger_name == "trg_start_glorbo_cutscene_2":
 		if root.has_trigger_data("can_start_glorbo_cutscene") and root.get_trigger_data("can_start_glorbo_cutscene") == true \
@@ -74,6 +75,7 @@ func triggered(trigger_name: String):
 			$Triggers/trg_start_glorbo_cutscene.queue_free()
 			$Triggers/trg_start_glorbo_cutscene_2.queue_free()
 			animation_player.play("first_glorbo_cutscene_2")
+			root.set_trigger_data("seen_glorbo_cutscene_hub", true)
 			
 	if trigger_name == "trg_endless_hall":
 		var can_pass = root.get_trigger_data("can_pass_endless_hall")

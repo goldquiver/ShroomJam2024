@@ -44,3 +44,7 @@ func change_map(map_path: String):
 	old_map.visible = false
 	old_map.reparent(saved_scenes)
 	old_map.set_process_mode(PROCESS_MODE_DISABLED)
+	
+	# check for the glorbo cutscene to play on reload map
+	if new_map.has_method("check_glorbo_cutscene"):
+		new_map.check_glorbo_cutscene()
