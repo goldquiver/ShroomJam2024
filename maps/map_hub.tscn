@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=38 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="2_k6nhg"]
 [ext_resource type="Texture2D" uid="uid://c5477rrcxem5s" path="res://asset/object/spr_decor.png" id="3_ixshy"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
+[ext_resource type="PackedScene" uid="uid://dlgmka1ivmq8r" path="res://game_object/zuli_poster.tscn" id="5_5eyxs"]
 [ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="5_qeg18"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
@@ -671,7 +672,11 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_8mvw8")
 format = 2
-layer_0/tile_data = PackedInt32Array(-1638390, 786433, 2, -1638389, 851969, 2, -1638386, 393217, 3, -1638385, 458753, 3, -131046, 655361, 0, -131045, 720897, 0, 196617, 131073, 1, -1507301, 131073, 1, -1507294, 131073, 0, -65495, 524289, 0, 41, 524289, 1, -65494, 589825, 0, 42, 589825, 1, -65477, 851969, 0, 59, 851969, 1, -1638396, 196609, 7, -1572860, 196609, 8, -1507324, 196609, 9, -1638395, 262145, 7, -1572859, 262145, 8, -1507323, 262145, 9, -1638394, 327681, 7, -1572858, 327681, 8, -1507322, 327681, 9, -1179628, 1, 7)
+layer_0/tile_data = PackedInt32Array(-1638390, 786433, 2, -1638389, 851969, 2, -131046, 655361, 0, -131045, 720897, 0, 196617, 131073, 1, -1507301, 131073, 1, -1507294, 131073, 0, -65495, 524289, 0, 41, 524289, 1, -65494, 589825, 0, 42, 589825, 1, -65477, 851969, 0, 59, 851969, 1, -1638396, 196609, 7, -1572860, 196609, 8, -1507324, 196609, 9, -1638395, 262145, 7, -1572859, 262145, 8, -1507323, 262145, 9, -1638394, 327681, 7, -1572858, 327681, 8, -1507322, 327681, 9, -1179628, 1, 7)
+
+[node name="ZuliPoster" parent="walldecor" instance=ExtResource("5_5eyxs")]
+position = Vector2(478, -785)
+scale = Vector2(2, 2)
 
 [node name="decortop" type="TileMap" parent="walldecor"]
 z_index = 1

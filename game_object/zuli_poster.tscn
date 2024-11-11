@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlgmka1ivmq8r"]
+
+[ext_resource type="Texture2D" uid="uid://c5477rrcxem5s" path="res://asset/object/spr_decor.png" id="1_81yu2"]
+[ext_resource type="Script" path="res://game_object/zuli_poster.gd" id="1_l74j1"]
+[ext_resource type="PackedScene" uid="uid://bw83g8762642n" path="res://component/interactive_component.tscn" id="2_i1aor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6f3u"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(128, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsi5v"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(160, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec4jb"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(96, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1l26"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(128, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8272a"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(160, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_382il"]
+atlas = ExtResource("1_81yu2")
+region = Rect2(96, 32, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sib2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6f3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsi5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec4jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1l26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8272a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_382il")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxhv0"]
+
+[node name="ZuliPoster" type="Node2D"]
+script = ExtResource("1_l74j1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sib2n")
+frame = 4
+frame_progress = 1.0
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("2_i1aor")]
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+shape = SubResource("RectangleShape2D_xxhv0")
