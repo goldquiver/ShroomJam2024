@@ -8,6 +8,7 @@ extends Node2D
 
 var glitch_ratio = 0.01
 
+
 func _ready():
 	$Door.open_door()
 	check_glorbo_cutscene()
