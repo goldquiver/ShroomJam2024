@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://td8u5r5s2nvf"]
+
+[ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="1_i2bg1"]
+
+[node name="duck_poster2" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_i2bg1")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 786433, 1)

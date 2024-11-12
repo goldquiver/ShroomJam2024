@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqh6ivjung3do"]
+
+[ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="1_0w4ds"]
+
+[node name="case1" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_0w4ds")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 196609, 10, -65535, 327681, 10)
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("1_0w4ds")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 196609, 7, -65536, 196609, 9, -131071, 327681, 7, -65535, 327681, 9)

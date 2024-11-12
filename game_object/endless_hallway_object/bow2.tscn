@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ay7hyj1ik34"]
+
+[ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="1_nrkgn"]
+
+[node name="bow2" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_nrkgn")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 524289, 1, -131072, 524289, 0)
