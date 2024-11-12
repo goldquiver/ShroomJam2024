@@ -7,6 +7,7 @@ extends Node2D
 
 @export_range (0, 1) var camera_smoothing: float = 0.06
 
+var seen_c_room_to_glitch = false
 
 # Camera Limit list items:
 # 1=top-left x, 2=top-left y, 3=bottom-right x, 4=bottom-right y
@@ -105,3 +106,10 @@ func randomize_endless_hall_items():
 	
 	for kid in hall.get_children():
 		kid.visible = randf() > 0.5
+
+
+func check_glorbo_cutscene():
+	var root = State.get_node_in_group("root")
+	if not seen_c_room_to_glitch and root.get_trigger_data("seen_c_room_glorbo"):
+		seen_c_room_to_glitch = true
+		animation_player.play("glorbo_towards_glitch_room")
