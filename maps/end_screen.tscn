@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://b40edaej1frym"]
+[gd_scene load_steps=17 format=3 uid="uid://b40edaej1frym"]
 
 [ext_resource type="Texture2D" uid="uid://dvxincnlxs252" path="res://asset/splash/end_screen.png" id="1_cpq8b"]
 [ext_resource type="Script" path="res://maps/end_screen.gd" id="1_imqym"]
 [ext_resource type="Texture2D" uid="uid://v7cam2j5kn48" path="res://asset/splash/end_screen-glorbo.png" id="2_dfngd"]
+[ext_resource type="AudioStream" uid="uid://bhf6opfpkl150" path="res://asset/sound/mus_credit.mp3" id="2_dxoc3"]
 [ext_resource type="Texture2D" uid="uid://dysq53i6h7558" path="res://asset/splash/end_screen-shroom.png" id="3_5abe8"]
 [ext_resource type="Texture2D" uid="uid://d2wtdu0dtjtqp" path="res://asset/splash/end_screen-glitch01.png" id="4_xx25i"]
 [ext_resource type="Texture2D" uid="uid://bil7lkrd3kiux" path="res://asset/splash/end_screen-glitch02.png" id="5_8oblt"]
@@ -89,6 +90,10 @@ animations = [{
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_imqym")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dxoc3")
+autoplay = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
@@ -103,3 +108,5 @@ visible = false
 position = Vector2(576, 320)
 sprite_frames = SubResource("SpriteFrames_q0r1x")
 animation = &"glitch-3"
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

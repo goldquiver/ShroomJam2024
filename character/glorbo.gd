@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var shadow_sprite = $Visuals/ShadowSprite
 @onready var glitch_anim = $Visuals/Glitch/AnimatedSprite2D
 
-var current_mask_ratio = 200
-var current_glitch_ratio = 0.75
+@export var current_mask_ratio:float = 200
+@export var current_glitch_ratio:float = 0.75
 
 var glitch_anim_active = false
 

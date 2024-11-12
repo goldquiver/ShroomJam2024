@@ -168,14 +168,23 @@ tracks/8/path = NodePath("Glorbo")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 9, 13, 17.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": ["walk-right", 0, false],
 "method": &"force_anim"
 }, {
 "args": ["sit-right", 0, false],
 "method": &"force_anim"
+}, {
+"args": [100.0],
+"method": &"set_mask_ratio"
+}, {
+"args": [50.0],
+"method": &"set_mask_ratio"
+}, {
+"args": [0.0],
+"method": &"set_mask_ratio"
 }]
 }
 tracks/9/type = "method"
