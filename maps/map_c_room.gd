@@ -14,7 +14,7 @@ func _ready():
 
 
 func _process(_delta):
-	var target = get_tree().get_first_node_in_group("player")
+	var target = State.get_node_in_group("player")
 	if target:
 		camera.position.x += (target.position.x - camera.position.x) * camera_smoothing
 		camera.position.y += (target.position.y - camera.position.y) * camera_smoothing

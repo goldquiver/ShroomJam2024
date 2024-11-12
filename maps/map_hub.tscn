@@ -754,6 +754,10 @@ position = Vector2(591, 196)
 position = Vector2(106, 161)
 next_map_path = "res://maps/map_c_room.tscn"
 
+[node name="Door2" parent="." instance=ExtResource("4_ee4rg")]
+position = Vector2(411, -736)
+next_map_path = "res://maps/map_glitch_room.tscn"
+
 [node name="Triggers" type="Node2D" parent="."]
 
 [node name="trg_glorbo_can_spawn_2" type="Area2D" parent="Triggers"]

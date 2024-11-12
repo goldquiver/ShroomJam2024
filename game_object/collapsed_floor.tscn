@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjbu7qraddyhf"]
+
+[ext_resource type="Texture2D" uid="uid://c8nptf8d1vywp" path="res://asset/map/spr_floorbroke.png" id="1_af7w1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxm8h"]
+size = Vector2(208, 102)
+
+[node name="CollapsedFloor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_af7w1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_xxm8h")

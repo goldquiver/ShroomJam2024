@@ -1,0 +1,351 @@
+[gd_scene load_steps=25 format=3 uid="uid://d1wylamoulm0a"]
+
+[ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_mhcp1"]
+[ext_resource type="Script" path="res://maps/map_glitch_room.gd" id="1_yt4ip"]
+[ext_resource type="PackedScene" uid="uid://bfvk43cmhb3dw" path="res://character/shroomy.tscn" id="2_6uqac"]
+[ext_resource type="Texture2D" uid="uid://ble1epbqjkn76" path="res://asset/map/Map04.png" id="2_iv8lm"]
+[ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="3_f47ok"]
+[ext_resource type="Texture2D" uid="uid://3f5bsby67w0o" path="res://asset/map/Map04_glitch.png" id="3_rr1jr"]
+[ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_0s07b"]
+[ext_resource type="PackedScene" uid="uid://cjbu7qraddyhf" path="res://game_object/collapsed_floor.tscn" id="5_oaf3x"]
+[ext_resource type="PackedScene" uid="uid://ca883j1icqhk7" path="res://game_object/glitch_sauce.tscn" id="9_a8sk4"]
+
+[sub_resource type="Animation" id="Animation_j7ko4"]
+resource_name = "init"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glorbo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1099, 1310), Vector2(1099, 604), Vector2(376, 603), Vector2(370, -43)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shroomy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1099, 1304), Vector2(1097, 1048)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shroomy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shroomy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"disable_terrain_collision"
+}, {
+"args": [],
+"method": &"enable_terrain_collision"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateAccessor")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_cutscene_state_all"
+}, {
+"args": [false],
+"method": &"set_cutscene_state_all"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Glorbo")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.3, 2, 4, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["walk-up", 0, false],
+"method": &"force_anim"
+}, {
+"args": [true],
+"method": &"set_glitch_effect"
+}, {
+"args": [false],
+"method": &"set_glitch_effect"
+}, {
+"args": ["walk-left", 0, false],
+"method": &"force_anim"
+}, {
+"args": ["walk-up", 0, false],
+"method": &"force_anim"
+}, {
+"args": [true],
+"method": &"set_glitch_effect"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fj3ew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glorbo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glorbo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1099, 1310)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shroomy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1100, 1151)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shroomy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shroomy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15w33"]
+_data = {
+"RESET": SubResource("Animation_fj3ew"),
+"init": SubResource("Animation_j7ko4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrn3t"]
+size = Vector2(1022, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnmna"]
+size = Vector2(837, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5frr8"]
+size = Vector2(97, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km41k"]
+size = Vector2(832, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4l"]
+size = Vector2(83, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xmts"]
+size = Vector2(802, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwbxq"]
+size = Vector2(72, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s81e1"]
+size = Vector2(50, 852)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqe4v"]
+size = Vector2(49, 863)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdb3e"]
+size = Vector2(135, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nkg0"]
+size = Vector2(23, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h2fo"]
+size = Vector2(20, 116)
+
+[node name="MapGlitchRoom" type="Node2D"]
+script = ExtResource("1_yt4ip")
+
+[node name="StateAccessor" parent="." instance=ExtResource("1_mhcp1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1269, 1282)
+limit_left = 0
+limit_top = 0
+limit_right = 1432
+limit_bottom = 1432
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_15w33")
+}
+
+[node name="Bounds" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(729, 460)
+shape = SubResource("RectangleShape2D_nrn3t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(633.5, 684)
+shape = SubResource("RectangleShape2D_cnmna")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(267.5, 908)
+shape = SubResource("RectangleShape2D_5frr8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(636, 1133)
+shape = SubResource("RectangleShape2D_km41k")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(1189.5, 684)
+shape = SubResource("RectangleShape2D_epg4l")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(813, 908)
+shape = SubResource("RectangleShape2D_5xmts")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(1184, 1133)
+shape = SubResource("RectangleShape2D_xwbxq")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(227, 799)
+shape = SubResource("RectangleShape2D_s81e1")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(1204.5, 790.5)
+shape = SubResource("RectangleShape2D_qqe4v")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+position = Vector2(1102, 1204)
+shape = SubResource("RectangleShape2D_sdb3e")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(716, 716)
+scale = Vector2(2, 2)
+texture = ExtResource("2_iv8lm")
+
+[node name="bg-glitched" type="Sprite2D" parent="background"]
+visible = false
+texture = ExtResource("3_rr1jr")
+
+[node name="walldecor" type="Node2D" parent="."]
+
+[node name="CollapsedFloor1" parent="walldecor" instance=ExtResource("5_oaf3x")]
+visible = false
+position = Vector2(364, 910)
+
+[node name="CollapsedFloor2" parent="walldecor" instance=ExtResource("5_oaf3x")]
+visible = false
+position = Vector2(1100, 686)
+
+[node name="Shroomy" parent="." instance=ExtResource("2_6uqac")]
+position = Vector2(1100, 1151)
+
+[node name="Glorbo" parent="." instance=ExtResource("3_f47ok")]
+visible = false
+position = Vector2(1099, 1310)
+
+[node name="Door" parent="." instance=ExtResource("4_0s07b")]
+visible = false
+position = Vector2(1100, 1223)
+next_map_path = "res://maps/map_hub.tscn"
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="trg_floor1" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_floor1"]
+position = Vector2(462.5, 797)
+shape = SubResource("RectangleShape2D_5nkg0")
+
+[node name="trg_floor2" type="Area2D" parent="Triggers"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_floor2"]
+position = Vector2(981, 573)
+shape = SubResource("RectangleShape2D_3h2fo")
+
+[node name="GlitchSauce" parent="." instance=ExtResource("9_a8sk4")]
+position = Vector2(309, 571)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

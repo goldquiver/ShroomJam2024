@@ -25,8 +25,18 @@ func get_current_map() -> Node:
 
 
 func get_node_in_group(group_name: String):
-	if get_tree():
-		var find_node = get_tree().get_first_node_in_group(group_name)
+	var curr_tree
+	
+	var tree_root = get_parent()
+	for kid in tree_root.get_children():
+		if kid.name == "Root":
+			for grandkid in kid.get_children():
+				if grandkid.name == "CurrentScene":
+					curr_tree = grandkid
+					break
+	
+	if curr_tree:
+		var find_node = curr_tree.get_tree().get_first_node_in_group(group_name)
 		if find_node:
 			return find_node
 		return null

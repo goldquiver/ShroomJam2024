@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca883j1icqhk7"]
+
+[ext_resource type="Script" path="res://game_object/glitch_sauce.gd" id="1_ok61f"]
+[ext_resource type="Texture2D" uid="uid://cds3erx23irn3" path="res://asset/object/spr_sauce.png" id="1_xbbnq"]
+[ext_resource type="PackedScene" uid="uid://bw83g8762642n" path="res://component/interactive_component.tscn" id="2_t8vmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mrhd"]
+atlas = ExtResource("1_xbbnq")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x84g"]
+atlas = ExtResource("1_xbbnq")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erg1x"]
+atlas = ExtResource("1_xbbnq")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pruxm"]
+atlas = ExtResource("1_xbbnq")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pel8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mrhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x84g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erg1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pruxm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwxhd"]
+size = Vector2(32, 32)
+
+[node name="GlitchSauce" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_ok61f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4pel8")
+frame_progress = 0.0996774
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("2_t8vmb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+shape = SubResource("RectangleShape2D_gwxhd")

@@ -54,13 +54,16 @@ func _process(_delta):
 
 # Check whether to display the glitch or not
 func manage_glitch_effects(_delta):
+	var can_glitch = State.get_node_in_group("root").get_trigger_data("can_glitch")
 	var glitch_on = Input.is_action_pressed("ui_glitch")
 	
-	glitch_anim.visible = glitch_on
-	glitch_anim.modulate = Color(randf()+0.2, randf()+0.2, randf()+0.2, randf()+0.2)
+	glitch_anim.visible = can_glitch and glitch_on
 	
-	set_collision_layer_value(1, not glitch_on)
-	set_collision_mask_value(1, not glitch_on)
+	if can_glitch:
+		glitch_anim.modulate = Color(randf()+0.2, randf()+0.2, randf()+0.2, randf()+0.2)
+		
+		set_collision_layer_value(1, not glitch_on)
+		set_collision_mask_value(1, not glitch_on)
 
 
 func set_glitch_anim(_delta):
