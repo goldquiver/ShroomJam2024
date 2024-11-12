@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dammjc868j3q7"]
+[gd_scene load_steps=17 format=3 uid="uid://dammjc868j3q7"]
 
 [ext_resource type="Script" path="res://maps/map_rooftop.gd" id="1_aqtqe"]
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_y2u1o"]
@@ -7,8 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://c6sdsw0ktqdgu" path="res://asset/sound/snd_glorbosad.mp3" id="3_3jxco"]
 [ext_resource type="Texture2D" uid="uid://b4tt1kpryfy3j" path="res://asset/map/MapEndBase.png" id="3_mg87w"]
 [ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="3_q6qrm"]
+[ext_resource type="AudioStream" uid="uid://csrm2pdpxwtwd" path="res://asset/sound/mus_ending01.mp3" id="3_v7bul"]
 [ext_resource type="AudioStream" uid="uid://wkeko2nimh5r" path="res://asset/sound/snd_glorbosound.mp3" id="4_aemaw"]
+[ext_resource type="AudioStream" uid="uid://dtuqe4skgu8ob" path="res://asset/sound/mus_ending02.mp3" id="4_hx068"]
 [ext_resource type="AudioStream" uid="uid://bbwnabfbjma4k" path="res://asset/sound/amb_glitchpad.mp3" id="5_5folw"]
+[ext_resource type="AudioStream" uid="uid://b5xm4exh312u3" path="res://asset/sound/mus_ending03.mp3" id="5_k607k"]
+[ext_resource type="AudioStream" uid="uid://4815ovxc7hho" path="res://asset/sound/mus_ending04.mp3" id="6_h7aub"]
 
 [sub_resource type="Animation" id="Animation_po8ew"]
 resource_name = "Ending01"
@@ -188,6 +192,33 @@ tracks/9/keys = {
 "method": &"set_cutscene_state_all"
 }]
 }
+tracks/10/type = "audio"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Shroomy/Music")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_v7bul")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_hx068")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_k607k")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_h7aub")
+}],
+"times": PackedFloat32Array(3, 7.3, 11.9, 16.5)
+}
+tracks/10/use_blend = true
 
 [sub_resource type="Animation" id="Animation_gafd6"]
 length = 0.001
@@ -280,6 +311,9 @@ scale = Vector2(4, 4)
 
 [node name="Shroomy" parent="." instance=ExtResource("2_4sve7")]
 position = Vector2(195, 499)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Shroomy"]
+position = Vector2(-473.08, -499)
 
 [node name="Glorbo" parent="." instance=ExtResource("3_q6qrm")]
 position = Vector2(1951, 458)
