@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bah8scywl2wff"]
+[gd_scene load_steps=28 format=3 uid="uid://bah8scywl2wff"]
 
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_cvlve"]
 [ext_resource type="Script" path="res://maps/map_c_room.gd" id="1_nwpmb"]
@@ -271,6 +271,18 @@ _data = {
 "init": SubResource("Animation_kvxp7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oqk0"]
+size = Vector2(52, 1282)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a8rw"]
+size = Vector2(54, 1278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joihn"]
+size = Vector2(1462, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38gsc"]
+size = Vector2(1532, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bst26"]
 size = Vector2(701, 608)
 
@@ -452,6 +464,28 @@ limit_right = 1300
 libraries = {
 "": SubResource("AnimationLibrary_wh65h")
 }
+
+[node name="GlitchBounds" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GlitchBounds"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(-14, 279)
+shape = SubResource("RectangleShape2D_2oqk0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(1391, 279)
+shape = SubResource("RectangleShape2D_2a8rw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(689, -371)
+shape = SubResource("RectangleShape2D_joihn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(684, 918)
+shape = SubResource("RectangleShape2D_38gsc")
 
 [node name="Bounds" type="Node" parent="."]
 

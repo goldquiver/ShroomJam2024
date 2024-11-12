@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=87 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -499,6 +499,18 @@ _data = {
 "intro": SubResource("Animation_3lsue")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecuc1"]
+size = Vector2(70, 1861)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w1sf"]
+size = Vector2(97, 1870)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwmgx"]
+size = Vector2(2899, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxbtu"]
+size = Vector2(2854, 82)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akxld"]
 size = Vector2(372, 639)
 
@@ -591,6 +603,28 @@ limit_bottom = 640
 libraries = {
 "": SubResource("AnimationLibrary_kba0p")
 }
+
+[node name="GlitchBounds" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GlitchBounds"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(-113, -112.5)
+shape = SubResource("RectangleShape2D_ecuc1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(2618.5, -120)
+shape = SubResource("RectangleShape2D_1w1sf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(1256, -1038)
+shape = SubResource("RectangleShape2D_nwmgx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="GlitchBounds/StaticBody2D"]
+position = Vector2(1249, 802)
+shape = SubResource("RectangleShape2D_kxbtu")
 
 [node name="Bounds" type="Node" parent="."]
 
