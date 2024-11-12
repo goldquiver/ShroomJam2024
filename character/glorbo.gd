@@ -2,15 +2,30 @@ extends CharacterBody2D
 
 @onready var clean_sprite = $Visuals/CleanSprite
 @onready var shadow_sprite = $Visuals/ShadowSprite
+@onready var glitch_anim = $Visuals/Glitch/AnimatedSprite2D
 
 var current_mask_ratio = 200
 var current_glitch_ratio = 0.75
+
+var glitch_anim_active = false
 
 
 func _process(_delta):
 	shadow_sprite.modulate.a = randf() * current_mask_ratio * _delta
 	set_animation_state(_delta)
 	set_glitch_anim(_delta)
+	
+	manage_glitch_effects(_delta)
+
+
+# Check whether to display the glitch or not
+func manage_glitch_effects(_delta):
+	glitch_anim.visible = glitch_anim_active
+	glitch_anim.modulate = Color(randf()+0.2, randf()+0.2, randf()+0.2, randf()+0.2)
+
+
+func set_glitch_effect(new_val: bool):
+	glitch_anim_active = new_val
 
 
 func set_glitch_anim(_delta):

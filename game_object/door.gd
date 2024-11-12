@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var door_closed = $DoorClosed
 @onready var door_open = $DoorOpen
+@onready var door_sfx = $AudioStreamPlayer2D
 
 @export var next_map_path: String
 
@@ -12,12 +13,14 @@ func open_door():
 	is_open = true
 	door_open.visible = is_open
 	door_closed.visible = !is_open
+	door_sfx.play()
 
 
 func close_door():
 	is_open = false
 	door_open.visible = is_open
 	door_closed.visible = !is_open
+	door_sfx.play()
 
 
 func interact():

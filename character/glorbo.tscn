@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://d2wjm0pyfoofp"]
+[gd_scene load_steps=170 format=3 uid="uid://d2wjm0pyfoofp"]
 
 [ext_resource type="Script" path="res://character/glorbo.gd" id="1_27n3g"]
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_34sr5"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bwthx6f2mjw" path="res://asset/character/spr_blorbomaskedsitleftglitch.png" id="27_11vau"]
 [ext_resource type="Texture2D" uid="uid://sch2a06xvys" path="res://asset/character/spr_blorbomaskedsitright.png" id="28_x0x1o"]
 [ext_resource type="Texture2D" uid="uid://c3atbya45stg1" path="res://asset/character/spr_blorbomaskedsitrightglitch.png" id="29_h5jxb"]
+[ext_resource type="PackedScene" uid="uid://c7yufn1n8ras5" path="res://game_object/glitch.tscn" id="37_nj33j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1064f"]
 atlas = ExtResource("4_gksrg")
@@ -1145,3 +1146,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_gqp4x")
 animation = &"walk-down"
 frame_progress = 0.280247
+
+[node name="Glitch" parent="Visuals" instance=ExtResource("37_nj33j")]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7yufn1n8ras5"]
+
+[ext_resource type="Texture2D" uid="uid://m3pm8vguuyuy" path="res://asset/object/spr_glitch.png" id="1_6fchf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1wr5"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyrf0"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c6bq"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bekw5"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi5jr"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_811aa"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na4aq"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uljs"]
+atlas = ExtResource("1_6fchf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ed4xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1wr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyrf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c6bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bekw5")
+}],
+"loop": true,
+"name": &"looping",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi5jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_811aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na4aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uljs")
+}],
+"loop": false,
+"name": &"once",
+"speed": 24.0
+}]
+
+[node name="Glitch" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ed4xw")
+animation = &"looping"

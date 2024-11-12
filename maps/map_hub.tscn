@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=46 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -399,6 +399,18 @@ size = Vector2(84, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl66k"]
 size = Vector2(243, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpwe0"]
+size = Vector2(52, 1902)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn4x0"]
+size = Vector2(45, 1887.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lyp1"]
+size = Vector2(2748, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bhvb"]
+size = Vector2(2765, 58)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onji1"]
 texture = ExtResource("3_ixshy")
 0:0/0 = 0
@@ -690,6 +702,26 @@ shape = SubResource("RectangleShape2D_jl81p")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds/StaticBody2D3"]
 position = Vector2(1632.5, 239)
 shape = SubResource("RectangleShape2D_xl66k")
+
+[node name="Glitch Bounds" type="StaticBody2D" parent="Bounds"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Glitch Bounds"]
+position = Vector2(-81, -136)
+shape = SubResource("RectangleShape2D_fpwe0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds/Glitch Bounds"]
+position = Vector2(2549.5, -148.75)
+shape = SubResource("RectangleShape2D_yn4x0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds/Glitch Bounds"]
+position = Vector2(1252, -1016)
+shape = SubResource("RectangleShape2D_1lyp1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds/Glitch Bounds"]
+position = Vector2(1223, 803)
+shape = SubResource("RectangleShape2D_0bhvb")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(1216, -160)

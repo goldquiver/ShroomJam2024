@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bfvk43cmhb3dw"]
+[gd_scene load_steps=39 format=3 uid="uid://bfvk43cmhb3dw"]
 
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_jwcsp"]
 [ext_resource type="Script" path="res://character/shroomy.gd" id="1_p1lax"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://davmthn7rta31" path="res://asset/character/spr_shroomwalkup.png" id="6_534p3"]
 [ext_resource type="Texture2D" uid="uid://ctn0oqlohd63t" path="res://asset/ui/exclamation.png" id="7_onw0m"]
 [ext_resource type="Texture2D" uid="uid://bs8ey202bhgne" path="res://asset/character/spr_shroomsitglitch.png" id="7_tm56e"]
+[ext_resource type="PackedScene" uid="uid://c7yufn1n8ras5" path="res://game_object/glitch.tscn" id="13_anql7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8a4t6"]
 radius = 16.0
@@ -219,6 +220,8 @@ animations = [{
 
 [node name="Shroomy" type="CharacterBody2D" groups=["player"]]
 z_index = 1
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_p1lax")
 
 [node name="TriggerScanner" type="Area2D" parent="."]
@@ -256,3 +259,7 @@ animation = &"sit"
 [node name="TalkableIcon" type="Sprite2D" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("7_onw0m")
+
+[node name="Glitch" parent="Visuals" instance=ExtResource("13_anql7")]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)

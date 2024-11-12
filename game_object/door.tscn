@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuickdfn26f5n"]
+[gd_scene load_steps=10 format=3 uid="uid://cuickdfn26f5n"]
 
 [ext_resource type="Texture2D" uid="uid://bd6vs23kwru0b" path="res://asset/object/Door.png" id="1_ahws3"]
 [ext_resource type="Script" path="res://game_object/door.gd" id="1_tfc5y"]
 [ext_resource type="PackedScene" uid="uid://bw83g8762642n" path="res://component/interactive_component.tscn" id="2_etmcc"]
+[ext_resource type="AudioStream" uid="uid://bt7lebl7ny2gv" path="res://asset/sound/snd_door.mp3" id="2_yfjuo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbkj0"]
 texture = ExtResource("1_ahws3")
@@ -29,6 +30,9 @@ size = Vector2(32, 48)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_tfc5y")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yfjuo")
 
 [node name="DoorClosed" type="TileMap" parent="."]
 position = Vector2(16, 0)
