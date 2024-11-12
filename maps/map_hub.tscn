@@ -313,71 +313,6 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_3lsue"]
-resource_name = "intro"
-length = 5.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shroomy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(593, 718), Vector2(590, 370)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Shroomy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": ["walk-up"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-left"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-right"],
-"method": &"force_anim"
-}, {
-"args": [],
-"method": &"stop_anim"
-}, {
-"args": ["walk-up"],
-"method": &"force_anim"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StateAccessor")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 5.3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": ["Shroomy", true],
-"method": &"set_cutscene_state"
-}, {
-"args": ["Shroomy", false],
-"method": &"set_cutscene_state"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_ibd26"]
 resource_name = "glorbo_towards_glitch_room"
 length = 3.0
@@ -489,6 +424,71 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.5)
 }
 tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_3lsue"]
+resource_name = "intro"
+length = 5.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shroomy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(593, 718), Vector2(590, 370)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shroomy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3, 3.3, 4, 4.3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["walk-up"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-left"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-right"],
+"method": &"force_anim"
+}, {
+"args": [],
+"method": &"stop_anim"
+}, {
+"args": ["walk-up"],
+"method": &"force_anim"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateAccessor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["Shroomy", true],
+"method": &"set_cutscene_state"
+}, {
+"args": ["Shroomy", false],
+"method": &"set_cutscene_state"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kba0p"]
 _data = {
