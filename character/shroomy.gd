@@ -6,12 +6,16 @@ extends CharacterBody2D
 @onready var interact_scanner = $InteractScanner
 @onready var trigger_scanner = $TriggerScanner
 
+@onready var glitch_anim = $Visuals/Glitch/AnimatedSprite2D
+
 var interactives_in_range = []
 
 var current_glitch_ratio = 0.1
 
 
 func _ready():
+	glitch_anim.play("looping")
+	
 	interact_scanner.area_entered.connect(_on_interactive_area_2d_area_entered)
 	interact_scanner.area_exited.connect(_on_interactive_area_2d_area_exited)
 	
@@ -32,7 +36,6 @@ func _process(_delta):
 		var direction = movement_vector.normalized()
 		
 		set_animation_state(_delta)
-		velocity_component.max_speed = 600 if Input.is_action_pressed("ui_run") else 400
 		
 		velocity_component.accelerate_in_direction(direction)
 		velocity_component.move(self)
@@ -45,6 +48,19 @@ func _process(_delta):
 	var curr_anim = anim_sprite.animation as String
 	if curr_anim.begins_with("sit"):
 		set_glitch_anim(_delta)
+		
+	manage_glitch_effects(_delta)
+
+
+# Check whether to display the glitch or not
+func manage_glitch_effects(_delta):
+	var glitch_on = Input.is_action_pressed("ui_glitch")
+	
+	glitch_anim.visible = glitch_on
+	glitch_anim.modulate = Color(randf()+0.2, randf()+0.2, randf()+0.2, randf()+0.2)
+	
+	set_collision_layer_value(1, not glitch_on)
+	set_collision_mask_value(1, not glitch_on)
 
 
 func set_glitch_anim(_delta):
