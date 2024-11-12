@@ -33,6 +33,10 @@ func _unhandled_input(_event):
 
 
 func _process(_delta):
+	# Cling audio to player
+	var root = State.get_node_in_group("root")
+	root.track_audio_source(self)
+	
 	if not State.is_in_cutscene("Shroomy"):
 		var movement_vector = get_movement_vector()
 		var direction = movement_vector.normalized()
@@ -63,6 +67,11 @@ func manage_glitch_effects(_delta):
 		var glitch_on = Input.is_action_pressed("ui_glitch")
 		
 		glitch_anim.visible = can_glitch and glitch_on
+		
+		if can_glitch and glitch_on:
+			State.get_node_in_group("root").play_music_spooky_glitch()
+		else:
+			State.get_node_in_group("root").play_music_spooky()
 		
 		if can_glitch:
 			glitch_anim.modulate = Color(randf()+0.2, randf()+0.2, randf()+0.2, randf()+0.2)

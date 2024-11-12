@@ -23,6 +23,10 @@ var quadrant_limits = {
 func _ready():
 	animation_player.play("intro")
 	disappear_ui.timeout.connect(_on_ui_timer_timeout)
+	
+	var root = State.get_node_in_group("root")
+	root.play_music_spooky()
+	
 	randomize_endless_hall_items()
 
 

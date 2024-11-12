@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=88 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6w8660ypjhor" path="res://component/trigger_component.tscn" id="2_c8g8o"]
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="2_k6nhg"]
 [ext_resource type="AudioStream" uid="uid://brxn0g6nia3xf" path="res://asset/sound/snd_glitch02.mp3" id="3_aedqj"]
+[ext_resource type="AudioStream" uid="uid://bbwnabfbjma4k" path="res://asset/sound/amb_glitchpad.mp3" id="3_ephnn"]
 [ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="4_2q1ql"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
 [ext_resource type="PackedScene" uid="uid://dlgmka1ivmq8r" path="res://game_object/zuli_poster.tscn" id="5_5eyxs"]
@@ -201,6 +202,21 @@ tracks/6/keys = {
 "method": &"close_door"
 }]
 }
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Glorbo/AudioStreamPlayer2D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 14.8303,
+"start_offset": 0.0,
+"stream": ExtResource("3_ephnn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1va6y"]
 resource_name = "first_glorbo_cutscene_2"
@@ -312,6 +328,21 @@ tracks/6/keys = {
 "method": &"close_door"
 }]
 }
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Glorbo/AudioStreamPlayer2D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 4.86,
+"start_offset": 10.0,
+"stream": ExtResource("3_ephnn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ibd26"]
 resource_name = "glorbo_towards_glitch_room"
@@ -417,11 +448,19 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ephnn")
+}, {
 "end_offset": 1.96301,
 "start_offset": 0.635477,
 "stream": ExtResource("3_aedqj")
+}, {
+"end_offset": 2.83,
+"start_offset": 15.0,
+"stream": ExtResource("3_ephnn")
 }],
-"times": PackedFloat32Array(0.5)
+"times": PackedFloat32Array(0, 0.5, 1)
 }
 tracks/6/use_blend = true
 
@@ -910,6 +949,7 @@ position = Vector2(591, 196)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Glorbo"]
 position = Vector2(-411, 438)
+volume_db = -15.0
 
 [node name="Door" parent="." instance=ExtResource("4_ee4rg")]
 position = Vector2(106, 161)

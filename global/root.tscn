@@ -1,13 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwptqmbikyyv"]
+[gd_scene load_steps=6 format=3 uid="uid://diwptqmbikyyv"]
 
 [ext_resource type="PackedScene" uid="uid://chi5j6nwngfcc" path="res://maps/start_screen.tscn" id="1_kj7oj"]
 [ext_resource type="Script" path="res://global/root.gd" id="1_ltu61"]
+[ext_resource type="AudioStream" uid="uid://bd74r21ciwlt6" path="res://asset/sound/mus_spookyplace.mp3" id="2_ai0a1"]
+[ext_resource type="AudioStream" uid="uid://bhf6opfpkl150" path="res://asset/sound/mus_credit.mp3" id="2_u4i2f"]
+[ext_resource type="AudioStream" uid="uid://b080thqv3ukl4" path="res://asset/sound/mus_spookyplace_glitch.mp3" id="3_b31r3"]
 
 [node name="Root" type="Node" groups=["root"]]
 script = ExtResource("1_ltu61")
+
+[node name="AudioSources" type="Node2D" parent="."]
+
+[node name="mus_spooky" type="AudioStreamPlayer2D" parent="AudioSources"]
+stream = ExtResource("2_ai0a1")
+
+[node name="mus_spooky_glitch" type="AudioStreamPlayer2D" parent="AudioSources"]
+stream = ExtResource("3_b31r3")
+
+[node name="mus_credit" type="AudioStreamPlayer2D" parent="AudioSources"]
+stream = ExtResource("2_u4i2f")
 
 [node name="CurrentScene" type="Node" parent="."]
 
 [node name="StartScreen" parent="CurrentScene" instance=ExtResource("1_kj7oj")]
 
 [node name="SavedScenes" type="Node" parent="."]
+
+[connection signal="finished" from="AudioSources/mus_spooky" to="." method="_on_mus_spooky_finished"]
+[connection signal="finished" from="AudioSources/mus_spooky_glitch" to="." method="_on_mus_spooky_glitch_finished"]
+[connection signal="finished" from="AudioSources/mus_credit" to="." method="_on_mus_credit_finished"]
