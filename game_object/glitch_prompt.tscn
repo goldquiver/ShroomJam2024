@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwlhc2md2vmty"]
+
+[ext_resource type="Script" path="res://game_object/glitch_prompt.gd" id="1_h7lmr"]
+[ext_resource type="Texture2D" uid="uid://r3h00aqt2eka" path="res://asset/ui/keyboard_shift.png" id="2_smwye"]
+
+[node name="GlitchPrompt" type="Node2D"]
+script = ExtResource("1_h7lmr")
+
+[node name="Timer_fade_out" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -89.0
+offset_top = -65.0
+offset_right = 99.0
+offset_bottom = -1.0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_smwye")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Glitch / Corrupt"

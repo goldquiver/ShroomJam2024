@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var talkable_icon = $Visuals/TalkableIcon
 @onready var interact_scanner = $InteractScanner
 @onready var trigger_scanner = $TriggerScanner
+@onready var glitch_prompt = $Visuals/GlitchPrompt
 
 @onready var glitch_anim = $Visuals/Glitch/AnimatedSprite2D
 
@@ -138,6 +139,11 @@ func tween_talkable_icon():
 	tween.tween_property(talkable_icon, "position", (talkable_icon.position + Vector2.UP * 72), 0.4)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.chain()
+
+
+func tween_glitch_icon():
+	glitch_prompt.visible = true
+	glitch_prompt.start_timer()
 
 
 # --- SIGNALIS

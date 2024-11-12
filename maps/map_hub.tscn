@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://iyjqs6rwh7eu"]
+[gd_scene load_steps=81 format=3 uid="uid://iyjqs6rwh7eu"]
 
 [ext_resource type="Script" path="res://maps/map_hub.gd" id="1_bixo1"]
 [ext_resource type="Texture2D" uid="uid://dkldcap5lyxwb" path="res://asset/map/Map01.png" id="1_u2k0s"]
@@ -44,6 +44,12 @@
 [ext_resource type="PackedScene" uid="uid://dopxx07sw1j81" path="res://game_object/endless_hallway_object/blue_barrel2.tscn" id="38_5bpyy"]
 [ext_resource type="PackedScene" uid="uid://buq6exhefvo7o" path="res://game_object/endless_hallway_object/seat.tscn" id="39_5eqbf"]
 [ext_resource type="PackedScene" uid="uid://cus21o5qdyc2x" path="res://game_object/endless_hallway_object/table.tscn" id="40_r48n1"]
+[ext_resource type="Texture2D" uid="uid://dnr3vnkq6ke3a" path="res://asset/ui/keyboard_e.png" id="45_hcmyb"]
+[ext_resource type="FontFile" uid="uid://kgqyjf4oygy2" path="res://asset/font/dogicabold.ttf" id="45_oei4h"]
+[ext_resource type="Texture2D" uid="uid://ck520glvp04na" path="res://asset/ui/keyboard_space.png" id="47_qivhy"]
+[ext_resource type="Texture2D" uid="uid://dfg28a1rb67e3" path="res://asset/ui/keyboard_arrows.png" id="48_agei5"]
+[ext_resource type="Texture2D" uid="uid://r3h00aqt2eka" path="res://asset/ui/keyboard_shift.png" id="49_eg04w"]
+[ext_resource type="Texture2D" uid="uid://cs6ocb8fs1hjb" path="res://asset/ui/keyboard_escape.png" id="50_fhe0f"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
 length = 0.001
@@ -451,6 +457,10 @@ size = Vector2(38, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3y6o"]
 size = Vector2(33, 115)
 
+[sub_resource type="Theme" id="Theme_4jcbc"]
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("45_oei4h")
+
 [node name="map_hub" type="Node2D"]
 script = ExtResource("1_bixo1")
 
@@ -809,3 +819,77 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/trg_load_end_game"]
 position = Vector2(2454, -623)
 shape = SubResource("RectangleShape2D_r3y6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = 308.0
+offset_right = 338.0
+offset_bottom = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4jcbc")
+
+[node name="Disappear_UI" type="Timer" parent="MarginContainer"]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("45_hcmyb")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("47_qivhy")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Interact"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("48_agei5")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Move"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("49_eg04w")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "???"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("50_fhe0f")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Quit game"

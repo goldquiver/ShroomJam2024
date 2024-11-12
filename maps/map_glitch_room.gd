@@ -42,6 +42,7 @@ func triggered(trigger_name: String):
 	if trigger_name == "trg_floor1":
 		var floor1 = $walldecor/CollapsedFloor1
 		floor1.visible = true
+		floor1.play_sound()
 		var coll = floor1.find_child("StaticBody2D") as StaticBody2D
 		coll.set_collision_layer_value(1, true)
 		coll.set_collision_mask_value(1, true)
@@ -50,6 +51,7 @@ func triggered(trigger_name: String):
 	if trigger_name == "trg_floor2":
 		var floor2 = $walldecor/CollapsedFloor2
 		floor2.visible = true
+		floor2.play_sound()
 		var coll = floor2.find_child("StaticBody2D") as StaticBody2D
 		coll.set_collision_layer_value(1, true)
 		coll.set_collision_mask_value(1, true)

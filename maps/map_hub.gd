@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 @onready var camera = $Camera2D
+@onready var margin_container = $MarginContainer
+@onready var disappear_ui = $MarginContainer/Disappear_UI
 
 @export_range (0, 1) var camera_smoothing: float = 0.06
 
@@ -19,7 +21,14 @@ var quadrant_limits = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.play("intro")
-	
+	disappear_ui.timeout.connect(_on_ui_timer_timeout)
+
+
+func _on_ui_timer_timeout():
+	var tween = create_tween()
+	tween.tween_property(margin_container, "modulate:a", 0.0, 1.0)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.chain()
 
 
 func _process(_delta):

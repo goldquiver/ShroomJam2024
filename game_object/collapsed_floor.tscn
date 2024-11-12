@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjbu7qraddyhf"]
+[gd_scene load_steps=5 format=3 uid="uid://cjbu7qraddyhf"]
 
 [ext_resource type="Texture2D" uid="uid://c8nptf8d1vywp" path="res://asset/map/spr_floorbroke.png" id="1_af7w1"]
+[ext_resource type="Script" path="res://game_object/collapsed_floor.gd" id="1_qwcfl"]
+[ext_resource type="AudioStream" uid="uid://6tygm0g2rfpo" path="res://asset/sound/snd_floorcrash.mp3" id="1_rooj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxm8h"]
 size = Vector2(208, 102)
 
 [node name="CollapsedFloor" type="Node2D"]
+script = ExtResource("1_qwcfl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_rooj1")
+volume_db = -20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_af7w1")
 region_enabled = true
-region_rect = Rect2(15.2402, 0, 49.5929, 80)
+region_rect = Rect2(15.947, 0, 48.2416, 80)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0
