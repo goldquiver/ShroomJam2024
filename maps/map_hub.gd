@@ -23,7 +23,7 @@ func _ready():
 
 
 func _process(_delta):
-	var player = get_tree().get_first_node_in_group("player")
+	var player = State.get_node_in_group("player")
 	if player:
 		var target_position_x = player.position.x
 		var target_position_y = player.position.y

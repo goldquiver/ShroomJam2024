@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
-@onready var wander_component = $WanderComponent
 @onready var clean_sprite = $Visuals/CleanSprite
 @onready var shadow_sprite = $Visuals/ShadowSprite
 
-var is_wandering = false
 var current_mask_ratio = 200
 var current_glitch_ratio = 0.75
 
@@ -43,12 +41,7 @@ func set_glitch_ratio(new_val: float):
 
 func set_animation_state(_delta: float):
 	if not State.is_in_cutscene("Glorbo"):
-		wander_component.active = is_wandering
-		var movement_vector
-		if is_wandering:
-			movement_vector = wander_component.get_movement_vector()
-		else:
-			movement_vector = Vector2.ZERO
+		var movement_vector = Vector2.ZERO
 		
 		if movement_vector.x != 0:
 			if movement_vector.x > 0:

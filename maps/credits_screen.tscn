@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt8dmsh1qvve5"]
+
+[ext_resource type="Script" path="res://maps/credits_screen.gd" id="1_r3xf7"]
+[ext_resource type="Texture2D" uid="uid://dvvk5ox0ii3iq" path="res://asset/splash/credit_screen.png" id="2_qs7hj"]
+
+[node name="CreditsScreen" type="Node2D"]
+script = ExtResource("1_r3xf7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qs7hj")
+offset = Vector2(576, 320)

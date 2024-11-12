@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var start_button = $VBoxContainer/StartButton
 @onready var exit_button = $VBoxContainer/ExitButton

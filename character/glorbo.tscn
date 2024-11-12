@@ -1,8 +1,7 @@
-[gd_scene load_steps=170 format=3 uid="uid://d2wjm0pyfoofp"]
+[gd_scene load_steps=169 format=3 uid="uid://d2wjm0pyfoofp"]
 
 [ext_resource type="Script" path="res://character/glorbo.gd" id="1_27n3g"]
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_34sr5"]
-[ext_resource type="PackedScene" uid="uid://b6xcyoew73xuy" path="res://component/wander_component.tscn" id="3_huier"]
 [ext_resource type="Texture2D" uid="uid://duo7i8s5y6o8r" path="res://asset/character/spr_blorboemotes.png" id="4_gksrg"]
 [ext_resource type="Texture2D" uid="uid://bidcmdpx6bx75" path="res://asset/character/spr_blorbowalkdown.png" id="4_ifkqj"]
 [ext_resource type="Texture2D" uid="uid://cn8wqvo26t063" path="res://asset/character/spr_blorboemotesleftglitch.png" id="5_6nvug"]
@@ -1130,9 +1129,6 @@ script = ExtResource("1_27n3g")
 [node name="VelocityComponent" parent="." instance=ExtResource("1_34sr5")]
 max_speed = 400
 acceleration = 40.0
-
-[node name="WanderComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("3_huier")]
-velocity_component = NodePath("../VelocityComponent")
 
 [node name="Visuals" type="Node2D" parent="."]
 

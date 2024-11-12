@@ -1,12 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://bfvk43cmhb3dw"]
+[gd_scene load_steps=38 format=3 uid="uid://bfvk43cmhb3dw"]
 
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_jwcsp"]
 [ext_resource type="Script" path="res://character/shroomy.gd" id="1_p1lax"]
+[ext_resource type="Texture2D" uid="uid://dyot54pqib886" path="res://asset/character/spr_shroomshockdown.png" id="3_df008"]
 [ext_resource type="Texture2D" uid="uid://dv5rtoap5bufo" path="res://asset/character/spr_shroomwalkdown.png" id="3_ssqxe"]
+[ext_resource type="Texture2D" uid="uid://ckt70refbftfm" path="res://asset/character/spr_shroomshockleft.png" id="4_6xsvf"]
 [ext_resource type="Texture2D" uid="uid://dcy1egr15ulf" path="res://asset/character/spr_shroomwalkleft.png" id="4_qh86y"]
+[ext_resource type="Texture2D" uid="uid://bjjdeiyqtvyyd" path="res://asset/character/spr_shroomshockright.png" id="5_62nr0"]
 [ext_resource type="Texture2D" uid="uid://dlsa80lqtqsj6" path="res://asset/character/spr_shroomwalkright.png" id="5_utw4l"]
+[ext_resource type="Texture2D" uid="uid://b27lyab8sgs35" path="res://asset/character/spr_shroomsit.png" id="6_36o7h"]
 [ext_resource type="Texture2D" uid="uid://davmthn7rta31" path="res://asset/character/spr_shroomwalkup.png" id="6_534p3"]
 [ext_resource type="Texture2D" uid="uid://ctn0oqlohd63t" path="res://asset/ui/exclamation.png" id="7_onw0m"]
+[ext_resource type="Texture2D" uid="uid://bs8ey202bhgne" path="res://asset/character/spr_shroomsitglitch.png" id="7_tm56e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8a4t6"]
 radius = 16.0
@@ -16,6 +21,26 @@ radius = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rt7b"]
 size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ehg"]
+atlas = ExtResource("3_df008")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_303kl"]
+atlas = ExtResource("4_6xsvf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ealwi"]
+atlas = ExtResource("5_62nr0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfp56"]
+atlas = ExtResource("6_36o7h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8cv"]
+atlas = ExtResource("7_tm56e")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdpku"]
 atlas = ExtResource("3_ssqxe")
@@ -83,6 +108,46 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rbtom"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5ehg")
+}],
+"loop": true,
+"name": &"shock-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_303kl")
+}],
+"loop": true,
+"name": &"shock-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ealwi")
+}],
+"loop": true,
+"name": &"shock-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfp56")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8cv")
+}],
+"loop": true,
+"name": &"sit-g",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xdpku")
@@ -186,8 +251,7 @@ shape = SubResource("RectangleShape2D_0rt7b")
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_rbtom")
-animation = &"walk-down"
-frame_progress = 0.516575
+animation = &"sit"
 
 [node name="TalkableIcon" type="Sprite2D" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)

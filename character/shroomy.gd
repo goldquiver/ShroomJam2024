@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 var interactives_in_range = []
 
+var current_glitch_ratio = 0.1
+
 
 func _ready():
 	interact_scanner.area_entered.connect(_on_interactive_area_2d_area_entered)
@@ -39,6 +41,28 @@ func _process(_delta):
 		talkable_icon.modulate.a = 0
 	else:
 		talkable_icon.modulate.a = 1
+	
+	var curr_anim = anim_sprite.animation as String
+	if curr_anim.begins_with("sit"):
+		set_glitch_anim(_delta)
+
+
+func set_glitch_anim(_delta):
+	var curr_anim = anim_sprite.animation as String
+	var root_anim_name = curr_anim
+	
+	if root_anim_name.ends_with("-g"):
+		root_anim_name = root_anim_name.substr(0, root_anim_name.length() - 2)
+	
+	var curr_frame = anim_sprite.frame
+	var curr_frame_progress = anim_sprite.frame_progress
+	
+	if randf() < current_glitch_ratio:
+		anim_sprite.play(root_anim_name + "-g")
+		anim_sprite.set_frame_and_progress(curr_frame, curr_frame_progress)
+	else:
+		anim_sprite.play(root_anim_name)
+		anim_sprite.set_frame_and_progress(curr_frame, curr_frame_progress)
 
 
 func disable_terrain_collision():

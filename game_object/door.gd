@@ -24,4 +24,4 @@ func interact():
 	if !is_open:
 		open_door()
 	else:
-		get_tree().get_first_node_in_group("root").change_map(next_map_path)
+		State.get_node_in_group("root").change_map(next_map_path)
