@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var anim_player = $AnimationPlayer
 @onready var camera = $Camera2D
-@onready var curr_camera_target = $Glorbo
+@onready var curr_camera_target
 
 @export_range (0, 1) var camera_smoothing: float = 0.06
 
@@ -18,9 +18,10 @@ func check_glorbo_cutscene():
 	var seen_cutscene = root.get_trigger_data("seen_glorbo_cutscene_glitch")
 	
 	if not seen_cutscene:
+		curr_camera_target = $Glorbo
 		anim_player.play("init")
 	else:
-		curr_camera_target = State.get_node_in_group("player")
+		curr_camera_target = $Shroomy
 
 
 func _process(_delta):
@@ -28,7 +29,6 @@ func _process(_delta):
 	$"background/bg-glitched".modulate.a = randf()
 	
 	if curr_camera_target:
-		print(curr_camera_target.position.x, ", ", curr_camera_target.position.y)
 		camera.position.x += (curr_camera_target.position.x - camera.position.x) * camera_smoothing
 		camera.position.y += (curr_camera_target.position.y - camera.position.y) * camera_smoothing
 
@@ -56,7 +56,6 @@ func triggered(trigger_name: String):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "init":
 		var root = State.get_node_in_group("root")
 		root.set_trigger_data("seen_glorbo_cutscene_glitch", true)

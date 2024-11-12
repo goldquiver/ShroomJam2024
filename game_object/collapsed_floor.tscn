@@ -10,6 +10,8 @@ size = Vector2(208, 102)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_af7w1")
+region_enabled = true
+region_rect = Rect2(15.2402, 0, 49.5929, 80)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0
