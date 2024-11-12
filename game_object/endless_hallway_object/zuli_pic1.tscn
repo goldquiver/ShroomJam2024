@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0b656782cv7o"]
+
+[ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="1_u0x0w"]
+
+[node name="ZuliPic" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_u0x0w")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 393217, 2, -65536, 458753, 2)
