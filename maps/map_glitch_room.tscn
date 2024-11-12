@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1wylamoulm0a"]
+[gd_scene load_steps=27 format=3 uid="uid://d1wylamoulm0a"]
 
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_mhcp1"]
 [ext_resource type="Script" path="res://maps/map_glitch_room.gd" id="1_yt4ip"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ble1epbqjkn76" path="res://asset/map/Map04.png" id="2_iv8lm"]
 [ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="3_f47ok"]
 [ext_resource type="Texture2D" uid="uid://3f5bsby67w0o" path="res://asset/map/Map04_glitch.png" id="3_rr1jr"]
+[ext_resource type="AudioStream" uid="uid://dh7te6dnoyf58" path="res://asset/sound/snd_glitch01.mp3" id="3_s2d75"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_0s07b"]
+[ext_resource type="AudioStream" uid="uid://b038t6mvxu852" path="res://asset/sound/snd_glitchdrawnout.mp3" id="4_dcxbg"]
 [ext_resource type="PackedScene" uid="uid://cjbu7qraddyhf" path="res://game_object/collapsed_floor.tscn" id="5_oaf3x"]
 [ext_resource type="PackedScene" uid="uid://ca883j1icqhk7" path="res://game_object/glitch_sauce.tscn" id="9_a8sk4"]
 
@@ -73,6 +75,18 @@ tracks/4/keys = {
 "args": ["walk-up"],
 "method": &"force_anim"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GlitchSauce:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-143, 571)]
 }
 
 [sub_resource type="Animation" id="Animation_j7ko4"]
@@ -192,6 +206,37 @@ tracks/6/keys = {
 "method": &"set_glitch_effect"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GlitchSauce:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-143, 571), Vector2(300, 572)]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Glorbo/AudioStreamPlayer2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0500547,
+"start_offset": 0.644182,
+"stream": ExtResource("3_s2d75")
+}, {
+"end_offset": 0.65724,
+"start_offset": 0.0,
+"stream": ExtResource("4_dcxbg")
+}],
+"times": PackedFloat32Array(0.8, 4.1)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_15w33"]
 _data = {
@@ -322,6 +367,9 @@ position = Vector2(1100, 1151)
 visible = false
 position = Vector2(1099, 1310)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Glorbo"]
+position = Vector2(-370, 43)
+
 [node name="Door" parent="." instance=ExtResource("4_0s07b")]
 visible = false
 position = Vector2(1100, 1223)
@@ -346,6 +394,6 @@ position = Vector2(981, 573)
 shape = SubResource("RectangleShape2D_3h2fo")
 
 [node name="GlitchSauce" parent="." instance=ExtResource("9_a8sk4")]
-position = Vector2(309, 571)
+position = Vector2(-143, 571)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -16,9 +16,10 @@ func _ready():
 
 func check_glorbo_cutscene():
 	var root = State.get_node_in_group("root")
-	var seen_cutscene = root.get_trigger_data("seen_glorbo_cutscene_glitch")
+	var seen_cutscene = root.get_trigger_data("seen_glitch_room_glorbo")
+	var seen_first_glorbo = root.get_trigger_data("seen_c_room_glorbo")
 	
-	if not seen_cutscene:
+	if seen_first_glorbo and not seen_cutscene:
 		curr_camera_target = $Glorbo
 		anim_player.play("init")
 	else:
@@ -38,7 +39,12 @@ func set_glitch_ratio(new_val: float):
 	glitch_ratio = new_val
 
 
-func triggered(trigger_name: String):	
+func triggered(trigger_name: String):
+	var root = State.get_node_in_group("root")
+	var seen_cutscene = root.get_trigger_data("seen_glitch_room_glorbo")
+	if not seen_cutscene:
+		return
+
 	if trigger_name == "trg_floor1":
 		var floor1 = $walldecor/CollapsedFloor1
 		floor1.visible = true
@@ -61,5 +67,5 @@ func triggered(trigger_name: String):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "init":
 		var root = State.get_node_in_group("root")
-		root.set_trigger_data("seen_glorbo_cutscene_glitch", true)
+		root.set_trigger_data("seen_glitch_room_glorbo", true)
 		curr_camera_target = State.get_node_in_group("player")

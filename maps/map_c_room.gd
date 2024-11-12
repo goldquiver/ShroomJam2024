@@ -33,6 +33,6 @@ func triggered(trigger_name: String):
 	var can_view = root.get_trigger_data("seen_glorbo_cutscene_hub")
 	
 	if trigger_name == "trg_make_glorbo_esped" and can_view:
-		root.set_trigger_data("can_pass_endless_hall", true)
+		root.set_trigger_data("seen_c_room_glorbo", true)
 		anim_player.play("glorbo_through_wall")
 		$Triggers/trg_make_glorbo_esped.queue_free()

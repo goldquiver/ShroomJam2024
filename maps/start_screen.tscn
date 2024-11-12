@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://chi5j6nwngfcc"]
+[gd_scene load_steps=11 format=3 uid="uid://chi5j6nwngfcc"]
 
 [ext_resource type="FontFile" uid="uid://boxr25ntm1dxb" path="res://asset/font/Cute Dino.ttf" id="1_p073k"]
 [ext_resource type="Texture2D" uid="uid://il8vwg25ufob" path="res://asset/splash/start_screen.png" id="2_hcnw3"]
 [ext_resource type="Script" path="res://maps/start_screen.gd" id="2_s42eg"]
 [ext_resource type="Texture2D" uid="uid://81lj6aei0nn6" path="res://asset/ui/cursor.png" id="3_kbh6k"]
+[ext_resource type="FontFile" uid="uid://kgqyjf4oygy2" path="res://asset/font/dogicabold.ttf" id="4_1htma"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7cli"]
 
@@ -14,6 +15,11 @@ Button/colors/icon_pressed_color = Color(0, 0.298039, 0, 1)
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("1_p073k")
 Button/styles/normal = SubResource("StyleBoxEmpty_j7cli")
+Label/colors/font_color = Color(0, 1, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("4_1htma")
 
 [sub_resource type="Animation" id="Animation_5dh5h"]
 length = 0.001
@@ -88,6 +94,16 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_iprl5")
 }
+
+[node name="Warning" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 518.0
+offset_right = 403.0
+offset_bottom = 566.0
+theme = SubResource("Theme_mj3pc")
+text = "WARNING: 
+
+mild flashing lights"
 
 [connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
 [connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]

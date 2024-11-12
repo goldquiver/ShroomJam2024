@@ -22,6 +22,7 @@ var quadrant_limits = {
 func _ready():
 	animation_player.play("intro")
 	disappear_ui.timeout.connect(_on_ui_timer_timeout)
+	randomize_endless_hall_items()
 
 
 func _on_ui_timer_timeout():
@@ -87,12 +88,20 @@ func triggered(trigger_name: String):
 			root.set_trigger_data("seen_glorbo_cutscene_hub", true)
 			
 	if trigger_name == "trg_endless_hall":
-		var can_pass = root.get_trigger_data("can_pass_endless_hall")
+		var can_pass = root.get_trigger_data("seen_glitch_room_glorbo")
 		if not can_pass:
 			var tele_point = $Triggers/endless_hall_respawn
 			State.get_node_in_group("player").position.x = tele_point.global_position.x
+			randomize_endless_hall_items()
 
 	if trigger_name == "trg_load_end_game":
-		var can_pass = root.get_trigger_data("can_pass_endless_hall")
+		var can_pass = root.get_trigger_data("seen_glitch_room_glorbo")
 		if can_pass:
 			root.change_map("res://maps/map_rooftop.tscn")
+
+
+func randomize_endless_hall_items():
+	var hall = $walldecor/EndlessHall
+	
+	for kid in hall.get_children():
+		kid.visible = randf() > 0.5
