@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b40edaej1frym"]
+[gd_scene load_steps=20 format=3 uid="uid://b40edaej1frym"]
 
 [ext_resource type="Texture2D" uid="uid://dvxincnlxs252" path="res://asset/splash/end_screen.png" id="1_cpq8b"]
 [ext_resource type="Script" path="res://maps/end_screen.gd" id="1_imqym"]
@@ -16,8 +16,40 @@ region = Rect2(0, 0, 1152, 640)
 atlas = ExtResource("2_dfngd")
 region = Rect2(0, 0, 1152, 640)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgxwe"]
+atlas = ExtResource("1_cpq8b")
+region = Rect2(0, 0, 1152, 640)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1uej"]
 atlas = ExtResource("3_5abe8")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5qwh"]
+atlas = ExtResource("1_cpq8b")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjf5j"]
+atlas = ExtResource("4_xx25i")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srw3b"]
+atlas = ExtResource("1_cpq8b")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uko8s"]
+atlas = ExtResource("5_8oblt")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq5f1"]
+atlas = ExtResource("1_cpq8b")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to455"]
+atlas = ExtResource("6_if643")
+region = Rect2(0, 0, 1152, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fae84"]
+atlas = ExtResource("1_cpq8b")
 region = Rect2(0, 0, 1152, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l00cm"]
@@ -33,6 +65,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2glji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgxwe")
 }],
 "loop": true,
 "name": &"blink-glorbo",
@@ -41,29 +76,20 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s1uej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5qwh")
 }],
 "loop": true,
 "name": &"blink-shroomy",
 "speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hts2"]
-atlas = ExtResource("4_xx25i")
-region = Rect2(0, 0, 1152, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l36fw"]
-atlas = ExtResource("5_8oblt")
-region = Rect2(0, 0, 1152, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qdm32"]
-atlas = ExtResource("6_if643")
-region = Rect2(0, 0, 1152, 640)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q0r1x"]
-animations = [{
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3hts2")
+"texture": SubResource("AtlasTexture_sjf5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srw3b")
 }],
 "loop": true,
 "name": &"glitch-1",
@@ -71,7 +97,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l36fw")
+"texture": SubResource("AtlasTexture_uko8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq5f1")
 }],
 "loop": true,
 "name": &"glitch-2",
@@ -79,7 +108,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qdm32")
+"texture": SubResource("AtlasTexture_to455")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fae84")
 }],
 "loop": true,
 "name": &"glitch-3",
@@ -88,6 +120,10 @@ animations = [{
 
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_imqym")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
@@ -98,8 +134,4 @@ position = Vector2(576, 320)
 sprite_frames = SubResource("SpriteFrames_l00cm")
 animation = &"base"
 
-[node name="Glitch" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(576, 320)
-sprite_frames = SubResource("SpriteFrames_q0r1x")
-animation = &"glitch-3"
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
