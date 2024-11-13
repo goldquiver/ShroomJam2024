@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var splash = $Splash
 @onready var timer = $Timer
+@onready var input_delay_timer = $InputDelayTimer
+
+var can_advance = false
 
 var random_arr = [
 	"base", "base", "base", "base", 
@@ -20,7 +23,7 @@ func _ready():
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if can_advance and Input.is_action_just_pressed("ui_accept"):
 		var root = State.get_node_in_group("root")
 		root.change_map("res://maps/credits_screen.tscn")
 
@@ -29,3 +32,7 @@ func _on_timer_timeout():
 	timer.wait_time += 0.02
 	var anim_name = random_arr.pick_random()
 	splash.play(anim_name)
+
+
+func _on_input_delay_timer_timeout():
+	can_advance = true

@@ -121,6 +121,11 @@ animations = [{
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_imqym")
 
+[node name="InputDelayTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
@@ -134,4 +139,5 @@ position = Vector2(576, 320)
 sprite_frames = SubResource("SpriteFrames_l00cm")
 animation = &"base"
 
+[connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
