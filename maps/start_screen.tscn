@@ -109,6 +109,7 @@ text = "WARNING:
 
 mild flashing lights"
 
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
 [connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="button_up" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

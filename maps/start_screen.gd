@@ -57,3 +57,7 @@ func _on_start_button_button_up():
 
 func _on_exit_button_button_up():
 	get_tree().quit()
+
+
+func _on_audio_stream_player_2d_finished():
+	audio_stream_player_2d.play()
