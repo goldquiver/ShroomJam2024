@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://brxn0g6nia3xf" path="res://asset/sound/snd_glitch02.mp3" id="3_aedqj"]
 [ext_resource type="AudioStream" uid="uid://bbwnabfbjma4k" path="res://asset/sound/amb_glitchpad.mp3" id="3_ephnn"]
 [ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="4_2q1ql"]
+[ext_resource type="AudioStream" uid="uid://wkeko2nimh5r" path="res://asset/sound/snd_glorbosound.mp3" id="4_3a3ou"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="4_ee4rg"]
 [ext_resource type="PackedScene" uid="uid://dlgmka1ivmq8r" path="res://game_object/zuli_poster.tscn" id="5_5eyxs"]
 [ext_resource type="PackedScene" uid="uid://d2wjm0pyfoofp" path="res://character/glorbo.tscn" id="5_qeg18"]
@@ -50,7 +51,6 @@
 [ext_resource type="FontFile" uid="uid://kgqyjf4oygy2" path="res://asset/font/dogicabold.ttf" id="45_oei4h"]
 [ext_resource type="Texture2D" uid="uid://ck520glvp04na" path="res://asset/ui/keyboard_space.png" id="47_qivhy"]
 [ext_resource type="Texture2D" uid="uid://dfg28a1rb67e3" path="res://asset/ui/keyboard_arrows.png" id="48_agei5"]
-[ext_resource type="Texture2D" uid="uid://r3h00aqt2eka" path="res://asset/ui/keyboard_shift.png" id="49_eg04w"]
 [ext_resource type="Texture2D" uid="uid://cs6ocb8fs1hjb" path="res://asset/ui/keyboard_escape.png" id="50_fhe0f"]
 
 [sub_resource type="Animation" id="Animation_e7uqv"]
@@ -217,6 +217,21 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Glorbo/AudioStreamPlayer2D2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_3a3ou")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1va6y"]
 resource_name = "first_glorbo_cutscene_2"
@@ -343,6 +358,21 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Glorbo/AudioStreamPlayer2D2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_3a3ou")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ibd26"]
 resource_name = "glorbo_towards_glitch_room"
@@ -951,6 +981,8 @@ position = Vector2(591, 196)
 position = Vector2(-411, 438)
 volume_db = -15.0
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Glorbo"]
+
 [node name="Door" parent="." instance=ExtResource("4_ee4rg")]
 position = Vector2(106, 161)
 next_map_path = "res://maps/map_c_room.tscn"
@@ -1062,17 +1094,6 @@ texture = ExtResource("48_agei5")
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Move"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("49_eg04w")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-text = "???"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

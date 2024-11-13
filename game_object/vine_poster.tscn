@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjjx5iq5ers1j"]
+
+[ext_resource type="TileSet" uid="uid://jal28rbd1fyu" path="res://asset/object/spr_decor.tres" id="1_dsc3a"]
+[ext_resource type="Script" path="res://game_object/vine_poster.gd" id="1_mh11r"]
+[ext_resource type="PackedScene" uid="uid://bw83g8762642n" path="res://component/interactive_component.tscn" id="2_6r7ri"]
+[ext_resource type="AudioStream" uid="uid://d2h2e66jqoibw" path="res://asset/sound/snd_vinedead.mp3" id="2_i7qx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k4ed"]
+
+[node name="VinePoster" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_mh11r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_i7qx8")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_dsc3a")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 917505, 3, -65536, 983041, 3)
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("2_6r7ri")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_3k4ed")

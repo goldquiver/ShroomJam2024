@@ -1137,8 +1137,7 @@ acceleration = 40.0
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nndtj")
-animation = &"walk-down"
-frame_progress = 0.957933
+animation = &"shock-left"
 
 [node name="ShadowSprite" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(0, -32)

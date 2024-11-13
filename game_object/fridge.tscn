@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://22ba8fccd2bl"]
+[gd_scene load_steps=10 format=3 uid="uid://22ba8fccd2bl"]
+
+[ext_resource type="Texture2D" uid="uid://xgfthyh8wi8" path="res://asset/object/spr_fridge.png" id="1_1dym8"]
+[ext_resource type="Script" path="res://game_object/fridge.gd" id="1_3pryg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3i1e"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_238hq"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps7tb"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4qqa"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s30p"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8xp5"]
+atlas = ExtResource("1_1dym8")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xtlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3i1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_238hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps7tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4qqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s30p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8xp5")
+}],
+"loop": false,
+"name": &"open",
+"speed": 6.0
+}]
 
 [node name="Fridge" type="Node2D"]
+script = ExtResource("1_3pryg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_8xtlk")
+animation = &"open"

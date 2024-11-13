@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bah8scywl2wff"]
+[gd_scene load_steps=30 format=3 uid="uid://bah8scywl2wff"]
 
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_cvlve"]
 [ext_resource type="Script" path="res://maps/map_c_room.gd" id="1_nwpmb"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bbwnabfbjma4k" path="res://asset/sound/amb_glitchpad.mp3" id="5_q4nk2"]
 [ext_resource type="Texture2D" uid="uid://c5477rrcxem5s" path="res://asset/object/spr_decor.png" id="5_u2tmx"]
 [ext_resource type="PackedScene" uid="uid://cuickdfn26f5n" path="res://game_object/door.tscn" id="7_xaktj"]
+[ext_resource type="PackedScene" uid="uid://bjjx5iq5ers1j" path="res://game_object/vine_poster.tscn" id="9_p1tne"]
 
 [sub_resource type="Animation" id="Animation_7qyj7"]
 length = 0.001
@@ -547,6 +548,9 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_s7vcn")
 format = 2
 layer_0/tile_data = PackedInt32Array(-262135, 131072, 2, -196599, 131072, 3, -262125, 131072, 0, 1179665, 655360, 0, 1179666, 720896, 0, 1179663, 131072, 1, 1245195, 196608, 3, 1245207, 262144, 2, 1245203, 327680, 3, 1179667, 196608, 3, 1179662, 327680, 2, -262131, 327680, 1, -262130, 393216, 1, -262117, 655360, 1, -262122, 131072, 0, 1310742, 131072, 10, 1310740, 0, 10, 1310741, 65536, 10, 1376273, 0, 14, 1179656, 0, 14, 393226, 65536, 14, -65528, 131072, 14, -131045, 0, 14, 30, 131072, 14, 17, 65536, 14, -65513, 65536, 14, -131060, 131072, 14, 1441801, 65536, 14, 1310732, 131072, 14, 1310743, 131072, 14, 720906, 131072, 14, 1179664, 458752, 0, 589832, 0, 14, -262116, 720896, 1)
+
+[node name="VinePoster" parent="walldecor" instance=ExtResource("9_p1tne")]
+position = Vector2(672, -95)
 
 [node name="Shroomy" parent="." instance=ExtResource("4_ahn5u")]
 position = Vector2(713, 709)

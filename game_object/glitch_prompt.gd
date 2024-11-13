@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var timer_fade_out = $Timer_fade_out
-@onready var h_box_container = $HBoxContainer
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 
 func _ready():
+	animated_sprite_2d.play("default")
 	timer_fade_out.timeout.connect(_on_timer_timeout)
 
 
@@ -14,6 +16,6 @@ func start_timer():
 func _on_timer_timeout():
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(h_box_container, "modulate:a", 0.0, 0.6)\
+	tween.tween_property(animated_sprite_2d, "modulate:a", 0.0, 0.6)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.chain()
