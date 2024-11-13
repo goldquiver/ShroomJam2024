@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://d2wjm0pyfoofp"]
+[gd_scene load_steps=168 format=3 uid="uid://d2wjm0pyfoofp"]
 
 [ext_resource type="Script" path="res://character/glorbo.gd" id="1_27n3g"]
 [ext_resource type="PackedScene" uid="uid://k68d5433xsqx" path="res://component/velocity_component.tscn" id="1_34sr5"]
@@ -130,10 +130,6 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("10_dkmxj")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gooib"]
-atlas = ExtResource("10_dkmxj")
-region = Rect2(96, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qj1y"]
 atlas = ExtResource("11_c2p1p")
 region = Rect2(0, 0, 32, 32)
@@ -185,10 +181,6 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u82ug"]
 atlas = ExtResource("13_gdbod")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhun2"]
-atlas = ExtResource("13_gdbod")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uy1xh"]
 atlas = ExtResource("4_ifkqj")
@@ -419,13 +411,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smo31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gooib")
 }],
 "loop": true,
 "name": &"sit-right",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -443,9 +432,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_avy7o")
 }],
-"loop": true,
+"loop": false,
 "name": &"sit-right-ending",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -463,9 +452,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nln2r")
 }],
-"loop": true,
+"loop": false,
 "name": &"sit-right-ending-g",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -476,13 +465,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u82ug")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fhun2")
 }],
 "loop": true,
 "name": &"sit-right-g",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1137,7 +1123,7 @@ acceleration = 40.0
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nndtj")
-animation = &"shock-left"
+animation = &"sit-right-ending"
 
 [node name="ShadowSprite" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(0, -32)

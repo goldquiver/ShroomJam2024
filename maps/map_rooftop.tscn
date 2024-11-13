@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dammjc868j3q7"]
+[gd_scene load_steps=34 format=3 uid="uid://dammjc868j3q7"]
 
 [ext_resource type="Script" path="res://maps/map_rooftop.gd" id="1_aqtqe"]
 [ext_resource type="PackedScene" uid="uid://sdscvc02ygkb" path="res://global/state_accessor.tscn" id="1_y2u1o"]
@@ -13,6 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://bbwnabfbjma4k" path="res://asset/sound/amb_glitchpad.mp3" id="5_5folw"]
 [ext_resource type="AudioStream" uid="uid://b5xm4exh312u3" path="res://asset/sound/mus_ending03.mp3" id="5_k607k"]
 [ext_resource type="AudioStream" uid="uid://4815ovxc7hho" path="res://asset/sound/mus_ending04.mp3" id="6_h7aub"]
+[ext_resource type="Texture2D" uid="uid://1u6mwg4gwj2e" path="res://asset/map/MapEndBaseGlich01.png" id="11_m5t0h"]
+[ext_resource type="Texture2D" uid="uid://bjta02j2pq1hn" path="res://asset/map/MapEndBaseGlich02.png" id="13_sthfo"]
+[ext_resource type="Texture2D" uid="uid://b66o4edtgfxlh" path="res://asset/map/MapEndBaseGlich03.png" id="14_5363y"]
+[ext_resource type="Texture2D" uid="uid://da5apbfu8bis0" path="res://asset/map/MapEndBaseGlich04.png" id="15_dmum8"]
+[ext_resource type="Texture2D" uid="uid://c4h6o06tmx1jr" path="res://asset/map/MapEndBaseGlich05.png" id="16_fn7km"]
 
 [sub_resource type="Animation" id="Animation_po8ew"]
 resource_name = "Ending01"
@@ -168,8 +173,8 @@ tracks/8/path = NodePath("Glorbo")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 5, 9, 13, 17.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 9, 13, 17.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["walk-right", 0, false],
 "method": &"force_anim"
@@ -185,6 +190,9 @@ tracks/8/keys = {
 }, {
 "args": [0.0],
 "method": &"set_mask_ratio"
+}, {
+"args": ["sit-right-ending", 0, false],
+"method": &"force_anim"
 }]
 }
 tracks/9/type = "method"
@@ -289,8 +297,122 @@ _data = {
 "RESET": SubResource("Animation_gafd6")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vmg6"]
+atlas = ExtResource("11_m5t0h")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjvfo"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bno08"]
+atlas = ExtResource("13_sthfo")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r0nt"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4q5q"]
+atlas = ExtResource("14_5363y")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02j8l"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0k3q"]
+atlas = ExtResource("15_dmum8")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_japc5"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80jv0"]
+atlas = ExtResource("16_fn7km")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l55pj"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brugx"]
+atlas = ExtResource("3_mg87w")
+region = Rect2(0, 0, 640, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fc7f1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vmg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjvfo")
+}],
+"loop": false,
+"name": &"base-1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bno08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r0nt")
+}],
+"loop": false,
+"name": &"base-2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4q5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02j8l")
+}],
+"loop": false,
+"name": &"base-3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0k3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_japc5")
+}],
+"loop": false,
+"name": &"base-4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80jv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l55pj")
+}],
+"loop": false,
+"name": &"base-5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brugx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="map_rooftop" type="Node2D"]
 script = ExtResource("1_aqtqe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="StateAccessor" parent="." instance=ExtResource("1_y2u1o")]
 
@@ -312,14 +434,11 @@ position = Vector2(1280, 320)
 scale = Vector2(4, 4)
 texture = ExtResource("2_x5r5x")
 
-[node name="rooftop_base_1" type="Sprite2D" parent="background"]
+[node name="rooftop_base_1" type="AnimatedSprite2D" parent="background"]
 position = Vector2(1280, 320)
 scale = Vector2(4, 4)
-texture = ExtResource("3_mg87w")
-
-[node name="rooftop_base_2" type="Sprite2D" parent="background"]
-position = Vector2(1280, 320)
-scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_fc7f1")
+animation = &"base-1"
 
 [node name="Shroomy" parent="." instance=ExtResource("2_4sve7")]
 position = Vector2(195, 499)
@@ -336,4 +455,5 @@ position = Vector2(1944, 453)
 [node name="Ambiance" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1947, 447)
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
