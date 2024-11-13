@@ -4,12 +4,14 @@ extends Node2D
 @onready var exit_button = $VBoxContainer/ExitButton
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $Sprite2D/AnimationPlayer
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var selected_button = 1
 
 
 func _ready():
 	animation_player.play("idle")
+	audio_stream_player_2d.play()
 
 
 func _process(_delta):
